@@ -1,0 +1,23 @@
+{
+  "name": "weemake-lp",
+  "version": "1.0.0",
+  "description": "Wee Make landing page - Automação para WhatsApp e Atendimento com IA",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neves-BR/WeeMakeLP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Neves-BR/WeeMakeLP/issues"
+  },
+  "homepage": "https://github.com/Neves-BR/WeeMakeLP#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
