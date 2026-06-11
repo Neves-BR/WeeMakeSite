@@ -1,308 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wee Make | Automação para WhatsApp e Atendimento com IA</title>
-  <meta name="description"
-    content="A Wee Make automatiza atendimento no WhatsApp, qualificação de leads, agendamento, follow-ups e processos comerciais para empresas em crescimento." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" href="./assets/weemake.ai.ico" sizes="any" />
-  <link rel="stylesheet" href="./styles.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="./analytics.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wee Make | Soluções em Tecnologia e Automação</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Automatize seu funil de vendas, gerencie redes sociais com IA e otimize sua operação com nossos ERPs modulares.">
 </head>
-
 <body>
-  <header class="site-header" data-animate>
-    <a class="brand" href="#top" aria-label="Início da Wee Make">
-      <img class="brand-logo" src="./assets/WeeMake%20Dark.png" alt="Wee Make - Transformando ideias em soluções" />
-    </a>
-    <nav class="nav-links" aria-label="Navegação principal">
-      <a href="#solution">Soluções</a>
-      <a href="#process">Como funciona</a>
-      <a href="#proof">Resultados</a>
-    </nav>
-    <a class="header-cta" href="https://wa.me/5515996197477"
-      aria-label="Falar com um especialista da Wee Make pelo WhatsApp">
-      <span class="wa-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path
-            d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-            fill="#25D366" />
-          <path
-            d="M17.08 14.26c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.9 1.10-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.46.09-.19.05-.36-.02-.50-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45 0 1.45 1.03 2.86 1.17 3.06.14.19 2.02 3.08 4.89 4.31 2.87 1.23 2.87.82 3.39.77.52-.05 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33z"
-            fill="#fff" />
-        </svg>
-      </span>
-      Falar com Especialista
-    </a>
-  </header>
-
-  <main id="top">
-    <section class="hero section-shell">
-      <div class="hero-copy" data-animate>
-
-        <h1>Nunca perca um cliente porque respondeu tarde demais.</h1>
-        <p>
-          Automatize seu WhatsApp, qualifique leads automaticamente e mantenha sua empresa disponível 24/7.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/5515996197477">
-            <span class="wa-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-                  fill="#25D366" />
-                <path
-                  d="M17.08 14.26c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.9 1.10-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.46.09-.19.05-.36-.02-.50-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45 0 1.45 1.03 2.86 1.17 3.06.14.19 2.02 3.08 4.89 4.31 2.87 1.23 2.87.82 3.39.77.52-.05 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33z"
-                  fill="#fff" />
-              </svg>
-            </span>
-            Falar com Especialista
-          </a>
-          <a class="btn btn-secondary" href="#process">Ver Como Funciona</a>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/WeeMake Dark.png" alt="Wee Make Logo">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#solucoes">Nossas Soluções</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
         </div>
-        <div class="hero-metrics" aria-label="Indicadores de desempenho da automação">
-          <div>
-            <strong>24/7</strong>
-            <span>Disponibilidade</span>
-          </div>
-          <div>
-            <strong>3x</strong>
-            <span>Resposta mais rápida</span>
-          </div>
-          <div>
-            <strong>+42%</strong>
-            <span>Engajamento de leads</span>
-          </div>
-        </div>
-      </div>
+    </header>
 
-      <div class="hero-visual"
-        aria-label="Mockup de dashboard com conversas do WhatsApp, funil de leads, assistente de IA e analytics"
-        data-animate>
-        <div class="connection-grid" aria-hidden="true"></div>
-        <img class="dashboard" src="./assets/dashboard.png" alt="Dashboard mockup">
-        <div class="page-break"></div>
-      </div>
-    </section>
-
-    <section class="section-shell problem-section">
-      <div class="section-heading" data-animate>
-        <span class="label">O obstáculo</span>
-        <h2>Alguma dessas situações parece familiar?</h2>
-      </div>
-      <div class="problem-grid">
-        <article class="problem-card" data-animate>
-          <span class="card-icon"><i data-lucide="clock-3"></i></span>
-          <h3>Clientes esperando horas por uma resposta</h3>
-        </article>
-        <article class="problem-card" data-animate>
-          <span class="card-icon"><i data-lucide="messages-square"></i></span>
-          <h3>Leads se perdendo no meio das conversas</h3>
-        </article>
-        <article class="problem-card" data-animate>
-          <span class="card-icon"><i data-lucide="repeat-2"></i></span>
-          <h3>Follow-up manual consumindo tempo valioso</h3>
-        </article>
-        <article class="problem-card" data-animate>
-          <span class="card-icon"><i data-lucide="eye"></i></span>
-          <h3>Falta de visibilidade sobre oportunidades de venda</h3>
-        </article>
-        <article class="problem-card" data-animate>
-          <span class="card-icon"><i data-lucide="list-checks"></i></span>
-          <h3>Equipe sobrecarregada com perguntas repetitivas</h3>
-        </article>
-      </div>
-    </section>
-
-    <section class="solution-section" id="solution">
-      <div class="section-shell">
-        <div class="section-heading light" data-animate>
-          <span class="label">O sistema Wee Make</span>
-          <h2>Seu WhatsApp trabalhando mesmo quando você não está.</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card" data-animate>
-            <div class="feature-orbit" aria-hidden="true"><i data-lucide="sparkles"></i></div>
-            <h3>Assistente de Atendimento com IA</h3>
-            <p>Responde dúvidas comuns instantaneamente.</p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-orbit" aria-hidden="true"><i data-lucide="funnel"></i></div>
-            <h3>Qualificação de Leads</h3>
-            <p>Identifica oportunidades e coleta informações importantes automaticamente.</p>
-          </article>
-          <article class="feature-card" data-animate>
-            <div class="feature-orbit" aria-hidden="true"><i data-lucide="refresh-cw"></i></div>
-            <h3>Follow-up Inteligente</h3>
-            <p>Retoma automaticamente o contato com prospects que pararam de responder.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-shell benefits-section">
-      <div class="section-heading" data-animate>
-        <span class="label">Clareza operacional</span>
-        <h2>Mais organização. Mais vendas. Menos trabalho manual.</h2>
-      </div>
-      <div class="benefit-layout">
-        <div class="benefit-list" data-animate>
-          <div><span></span>Atendimento ao cliente 24/7</div>
-          <div><span></span>Tempos de resposta mais rápidos</div>
-          <div><span></span>Melhor gestão de leads</div>
-          <div><span></span>Taxas de conversão mais altas</div>
-          <div><span></span>Menos carga operacional</div>
-          <div><span></span>Comunicação com clientes centralizada</div>
-        </div>
-        <div class="flow-panel" aria-label="Fluxo de comunicação com clientes" data-animate>
-          <div class="flow-node main">WhatsApp</div>
-          <div class="flow-line one"></div>
-          <div class="flow-line two"></div>
-          <div class="flow-line three"></div>
-          <div class="flow-node top">Qualificar</div>
-          <div class="flow-node right">Agendar</div>
-          <div class="flow-node bottom">Retomar</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-shell process-section" id="process">
-      <div class="section-heading" data-animate>
-        <span class="label">Implementação simples</span>
-        <h2>Como funciona</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-step" data-animate>
-          <span>Etapa 1</span>
-          <h3>Entendemos o seu processo</h3>
-        </article>
-        <article class="timeline-step" data-animate>
-          <span>Etapa 2</span>
-          <h3>Configuramos a sua automação</h3>
-        </article>
-        <article class="timeline-step" data-animate>
-          <span>Etapa 3</span>
-          <h3>Sua empresa começa a operar de forma mais inteligente</h3>
-        </article>
-      </div>
-    </section>
-
-    <section class="proof-section" id="proof">
-      <div class="section-shell">
-        <div class="section-heading light" data-animate>
-          <span class="label">Resultados reais</span>
-          <h2>Empresas já estão automatizando o próprio crescimento.</h2>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card" data-animate>
-            <p>"A IA responde os curiosos e tira as dúvidas básicas na hora. Hoje, minha equipe só entra no WhatsApp quando o cliente já está pronto para fechar o serviço."</p>
-            <p>⭐⭐⭐⭐⭐</p>
-            <div>
-              <strong>Wellington Aragão</strong>
-              <span>Gerente de Operações<br>Empresa de Serviços de Vitória/ES</span>
+    <!-- Seção Principal (Hero) -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Tecnologia que escala o seu negócio</h1>
+                <p>Impulsione suas vendas com automações inteligentes de IA e integre todos os processos da sua empresa com sistemas de gestão modulares feitos para o seu nicho.</p>
+                <a href="#solucoes" class="btn btn-primary">Conheça as Soluções</a>
             </div>
-          </article>
-          <article class="testimonial-card" data-animate>
-            <p>"Foi o fim da demora no atendimento. O cliente chama e a IA já envia nosso catálogo com preços na mesma hora, aproveitando que ele ainda está com o celular na mão."</p>
-            <p>⭐⭐⭐⭐⭐</p>
-            <div>
-              <strong>Bruno Verneck</strong>
-              <span>Fundador
-                <br>Empresa de varejo de Itapeva/SP</span>
+            <div class="hero-image">
+                <img src="assets/dashboard.png" alt="Demonstração do Sistema Wee Make">
             </div>
-          </article>
-          <article class="testimonial-card" data-animate>
-            <p>"Sair da bagunça do WhatsApp foi um alívio. O sistema organiza tudo: eu abro a tela e sei exatamente quem agendou, quem orçou e quem está esperando retorno."</p>
-            <p>⭐⭐⭐⭐⭐</p>
-            <div>
-              <strong>Ana Pereira</strong>
-              <span>Gerente Comercial
-                <br>Rede de Clínicas de Sorocaba/SP</span>
-            </div>
-          </article>
         </div>
-        <div class="trust-row" data-animate>
-          <div><strong>Respostas</strong><span>mais rápidas</span></div>
-          <div><strong>Gestão</strong><span>de leads aprimorada</span></div>
-          <div><strong>Produtividade</strong><span>em crescimento</span></div>
-        </div>
-      </div>
     </section>
 
-    <section class="final-cta section-shell" data-animate>
-      <div>
-        <span class="label">Pronto quando o cliente estiver</span>
-        <h2>Seu próximo cliente pode estar esperando uma resposta agora.</h2>
-        <p>Descubra como a automação inteligente pode ajudar sua empresa a crescer.</p>
-      </div>
-      <a class="btn btn-primary" href="https://wa.me/5500000000000">
-        <span class="wa-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-              fill="#25D366" />
-            <path
-              d="M17.08 14.26c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.9 1.10-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.46.09-.19.05-.36-.02-.50-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45 0 1.45 1.03 2.86 1.17 3.06.14.19 2.02 3.08 4.89 4.31 2.87 1.23 2.87.82 3.39.77.52-.05 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33z"
-              fill="#fff" />
-          </svg>
-        </span>
-        Agendar uma Conversa
-      </a>
+    <!-- Seção de Soluções (Links para as LPs) -->
+    <section id="solucoes" class="solutions">
+        <div class="container">
+            <h2>Nossas Soluções</h2>
+            <div class="cards-grid">
+                
+                <!-- Produto 1: Automações e IA -->
+                <div class="card">
+                    <h3>Inteligência e Automação</h3>
+                    <p>Revolucione seu atendimento e conversão. Oferecemos automações completas de WhatsApp com IA, Chatbots avançados, gestão de CRM, estruturação de funis de vendas e gerenciamento automatizado de redes sociais.</p>
+                    <a href="link-da-sua-lp-de-automacao.html" class="btn btn-secondary">Saber mais sobre Automações</a>
+                </div>
+
+                <!-- Produto 2: ERPs Modulares -->
+                <div class="card">
+                    <h3>Sistemas de Gestão (ERP)</h3>
+                    <p>Controle total da sua operação. Nossos ERPs modulares são adaptáveis a diversos nichos de mercado, garantindo que você pague apenas pelas ferramentas que sua empresa realmente precisa para crescer de forma organizada.</p>
+                    <a href="link-da-sua-lp-de-erp.html" class="btn btn-secondary">Saber mais sobre ERPs</a>
+                </div>
+
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <a class="brand footer-brand" href="#top" aria-label="Início da Wee Make">
-        <img class="brand-logo" src="./assets/WeeMake%20Dark.png" alt="Wee Make - Transformando ideias em soluções" />
-      </a>
-      <nav aria-label="Navegação do rodapé">
-        <a href="#solution">Serviços</a>
-        <a href="https://wa.me/5515996197477">
-          <span class="wa-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-                fill="#25D366" />
-              <path
-                d="M17.08 14.26c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.9 1.10-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.46.09-.19.05-.36-.02-.50-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45 0 1.45 1.03 2.86 1.17 3.06.14.19 2.02 3.08 4.89 4.31 2.87 1.23 2.87.82 3.39.77.52-.05 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33z"
-                fill="#fff" />
-            </svg>
-          </span>
-          Contato
-        </a>
-        <a href="#">Política de Privacidade</a>
-      </nav>
-    </div>
-  </footer>
+    <!-- Rodapé -->
+    <footer id="contato" class="footer">
+        <div class="container">
+            <p>&copy; 2026 Wee Make. Todos os direitos reservados.</p>
+            <p>Contato: contato@weemake.com.br</p>
+        </div>
+    </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5515996197477"
-    aria-label="Entrar em contato com a Wee Make pelo WhatsApp">
-    <span class="wa-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-          fill="#fff" opacity="0.03" />
-        <path
-          d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .01 5.373.01 12.001 0 13.986.432 15.88 1.25 17.56L0 24l6.62-1.224A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.247-6.165-3.48-8.52z"
-          fill="#25D366" />
-        <path
-          d="M17.08 14.26c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.9 1.10-.16.19-.31.21-.59.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.46.09-.19.05-.36-.02-.50-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45 0 1.45 1.03 2.86 1.17 3.06.14.19 2.02 3.08 4.89 4.31 2.87 1.23 2.87.82 3.39.77.52-.05 1.66-.68 1.9-1.34.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33z"
-          fill="#fff" />
-      </svg>
-    </span>
-    WhatsApp
-  </a>
-
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="./script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/analytics.js"></script>
 </body>
-
 </html>
