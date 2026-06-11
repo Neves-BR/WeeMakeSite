@@ -5,31 +5,25 @@
 (function() {
   'use strict';
   
-  // Check if we're in a browser environment
-  if (typeof window === 'undefined') return;
-  
   // Initialize the analytics queue
-  if (!window.va) {
-    window.va = function() {
-      if (!window.vaq) window.vaq = [];
-      window.vaq.push(arguments);
-    };
-  }
-  
-  // Detect environment
-  var mode = 'production';
-  try {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      mode = 'development';
-    }
-  } catch (e) {}
-  
-  window.vam = mode;
+  // This buffers analytics calls before the main script loads
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
   
   // Create and inject the analytics script
   var script = document.createElement('script');
-  script.src = '/_vercel/insights/script.js';
+  // Use the CDN URL for better reliability, falls back to Vercel's internal path when deployed
+  script.src = 'https://cdn.vercel-insights.com/v1/script.js';
   script.defer = true;
+  
+  // Fallback to internal Vercel path on error (for Vercel deployments)
+  script.onerror = function() {
+    var fallbackScript = document.createElement('script');
+    fallbackScript.src = '/_vercel/insights/script.js';
+    fallbackScript.defer = true;
+    document.head.appendChild(fallbackScript);
+  };
   
   // Inject script when DOM is ready
   if (document.readyState === 'loading') {
