@@ -16,6 +16,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth; /* Adiciona rolagem suave nos links do menu */
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -44,8 +48,9 @@ h1, h2, h3 {
     padding: 10px 24px;
     border-radius: 6px;
     font-weight: 500;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-primary {
@@ -69,6 +74,13 @@ h1, h2, h3 {
     color: #fff;
 }
 
+/* Estado desabilitado (ex: Botão do ERP) */
+.btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* Header */
 .header {
     background-color: rgba(10, 10, 10, 0.95);
@@ -76,6 +88,7 @@ h1, h2, h3 {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #333;
+    backdrop-filter: blur(5px); /* Efeito de vidro opcional para o menu fixo */
 }
 
 .header .container {
@@ -116,6 +129,7 @@ h1, h2, h3 {
     height: 3px;
     margin: 5px auto;
     background-color: var(--text-primary);
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
@@ -154,18 +168,37 @@ h1, h2, h3 {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Soluções Section */
-.solutions {
+/* Seções Padrão (Soluções, Sobre, Contato) */
+.solutions, .sobre, .contato {
     padding: 80px 0;
+}
+
+/* Alternância de cores de fundo para destacar as divisões */
+.solutions {
     background-color: var(--surface-color);
 }
 
-.solutions h2 {
+.sobre {
+    background-color: var(--bg-color);
+}
+
+.contato {
+    background-color: var(--surface-color);
+}
+
+.solutions h2, .sobre h2, .contato h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
 }
 
+.contato p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
+}
+
+/* Cards Grid */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -182,9 +215,23 @@ h1, h2, h3 {
     justify-content: space-between;
 }
 
+/* Se o card estiver dentro de uma seção com surface-color, inverte o fundo do card */
+.solutions .card, .contato .card {
+    background-color: var(--bg-color);
+}
+
+.sobre .card {
+    background-color: var(--surface-color);
+}
+
 .card p {
     color: var(--text-secondary);
     flex-grow: 1;
+    margin-bottom: 1rem; /* Separa múltiplos parágrafos */
+}
+
+.card p:last-of-type {
+    margin-bottom: 0; /* Remove a margem do último parágrafo antes do botão */
 }
 
 /* Footer */
@@ -192,7 +239,16 @@ h1, h2, h3 {
     padding: 40px 10px;
     text-align: center;
     border-top: 1px solid #333;
+    background-color: var(--bg-color);
     color: var(--text-secondary);
+}
+
+.footer a {
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
 }
 
 /* Responsividade Básica */
@@ -203,22 +259,24 @@ h1, h2, h3 {
     }
     
     .nav-links {
-        display: none; /* Oculto no mobile, ativado via JS abaixo */
+        display: none;
     }
 
     .hamburger {
         display: block;
     }
+
     .nav-links.active {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background-color: #0a0a0a;
-    padding: 20px 0;
-    align-items: center;
-    border-bottom: 1px solid #333;
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #0a0a0a;
+        padding: 20px 0;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para o menu mobile se destacar */
     }
 }
