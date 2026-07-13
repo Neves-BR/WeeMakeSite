@@ -22,7 +22,7 @@
                     <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" role="button" aria-label="Abrir menu de navegação">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -45,7 +45,7 @@
         </div>
     </section>
 
-    <!-- Seção de Soluções (Links para as LPs) -->
+    <!-- Seção de Soluções -->
     <section id="solucoes" class="solutions">
         <div class="container">
             <h2>Nossas Soluções</h2>
@@ -62,60 +62,65 @@
                 <div class="card">
                     <h3>Sistemas de Gestão (ERP)</h3>
                     <p>Controle total da sua operação. Nossos ERPs modulares são adaptáveis a diversos nichos de mercado, garantindo que você pague apenas pelas ferramentas que sua empresa realmente precisa para crescer de forma organizada.</p>
-                    <a href="Em construção" class="btn btn-secondary">Saber mais sobre ERPs</a>
+                    <!-- Alterado para um link vazio temporário para não quebrar o HTML -->
+                    <a href="#" class="btn btn-secondary disabled" onclick="event.preventDefault();" title="Página em construção">Em breve: Saber mais</a>
                 </div>
 
             </div>
         </div>
     </section>
-    <section id="sobre" class="sobre">
-    <div class="container">
-        <h2>Sobre nós</h2>
-        <div class="cards-grid">
-            <div class="card">
-                <h3>A Wee Make</h3>
-                <p>Nossa história começou há 4 anos, construindo soluções através de softwares e design gráfico. </p>
-                <p>Ao longo dessa jornada, percebemos que pequenos e médios negócios precisavam de algo além: escalar o atendimento sem perder a proximidade com o cliente. </p>
-                <p>Por isso, em 2025, evoluímos. Trouxemos a Inteligência Artificial para o nosso DNA, especializando-nos em automações de WhatsApp humanizadas. </p>    
-                <p>Hoje, transformamos a rotina da sua empresa com tecnologia sob medida e eficiência real.</p>
-                <a href="https://lp-ia.weemake.com.br" class="btn btn-secondary">Descubra nossas Automações</a>
-            </div>
-        </div>
-    </div>
-    </section>
-    <section id="contato" class="solutions">
-    <div class="container">
-        <h2>Entre em contato</h2>
-        <p>Pronto para dar o próximo passo e escalar o seu negócio? Fale com a gente e descubra como podemos ajudar.</p>
-        
-        <div class="cards-grid">
-            <!-- Card do WhatsApp -->
-            <div class="card">
-                <h3>WhatsApp</h3>
-                <p>Tem dúvidas ou quer um orçamento? Fale diretamente com a nossa equipe de forma rápida e prática.</p>
-                <!-- Substitua 55SEUNUMERO pelo seu número com DDD. Ex: 5511999999999 -->
-                <a href="https://wa.me/5515996197477" target="_blank" class="btn btn-primary">
-                    Chamar no WhatsApp
-                </a>
-            </div>
 
-            <!-- Card do Instagram -->
-            <div class="card">
-                <h3>Instagram</h3>
-                <p>Acompanhe nossos bastidores, dicas de tecnologia e novidades sobre IA para negócios.</p>
-                <!-- Substitua SEUPERFIL pelo @ da sua empresa. Ex: weemake -->
-                <a href="https://instagram.com/weemake.ai" target="_blank" class="btn btn-secondary">
-                    Seguir no Instagram
-                </a>
+    <!-- Seção Sobre Nós -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2>Sobre nós</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>A Wee Make</h3>
+                    <p>Nossa história começou há 4 anos, construindo soluções através de softwares e design gráfico.</p>
+                    <p>Ao longo dessa jornada, percebemos que pequenos e médios negócios precisavam de algo além: escalar o atendimento sem perder a proximidade com o cliente.</p>
+                    <p>Por isso, em 2025, evoluímos. Trouxemos a Inteligência Artificial para o nosso DNA, especializando-nos em automações de WhatsApp humanizadas.</p>    
+                    <p>Hoje, transformamos a rotina da sua empresa com tecnologia sob medida e eficiência real.</p>
+                    <a href="https://lp-ia.weemake.com.br" class="btn btn-secondary">Descubra nossas Automações</a>
+                </div>
             </div>
         </div>
-    </div>
     </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2>Entre em contato</h2>
+            <p>Pronto para dar o próximo passo e escalar o seu negócio? Fale com a gente e descubra como podemos ajudar.</p>
+            
+            <div class="cards-grid">
+                <!-- Card do WhatsApp -->
+                <div class="card">
+                    <h3>WhatsApp</h3>
+                    <p>Tem dúvidas ou quer um orçamento? Fale diretamente com a nossa equipe de forma rápida e prática.</p>
+                    <a href="https://wa.me/5515996197477" target="_blank" class="btn btn-primary">
+                        Chamar no WhatsApp
+                    </a>
+                </div>
+
+                <!-- Card do Instagram -->
+                <div class="card">
+                    <h3>Instagram</h3>
+                    <p>Acompanhe nossos bastidores, dicas de tecnologia e novidades sobre IA para negócios.</p>
+                    <a href="https://instagram.com/weemake.ai" target="_blank" class="btn btn-secondary">
+                        Seguir no Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Rodapé -->
-    <footer id="contato" class="footer">
+    <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Wee Make. Todos os direitos reservados.</p>
-            <p>Contato: contato.weemake@gmail.com.br</p>
+            <!-- Transformei o e-mail em um link clicável mailto -->
+            <p>Contato: <a href="mailto:contato.weemake@gmail.com.br">contato.weemake@gmail.com.br</a></p>
         </div>
     </footer>
 
