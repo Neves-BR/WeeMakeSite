@@ -319,19 +319,21 @@ a {
     align-items: center;
 }
 
-.logo-text {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
+.logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    transition: transform var(--transition-base);
+    object-fit: contain;
 }
 
-.logo-accent {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.logo-img--footer {
+    height: 40px;
+    margin-bottom: 16px;
 }
 
 .navbar {
@@ -1152,9 +1154,8 @@ a {
     margin-bottom: 64px;
 }
 
-.footer-brand .logo-text {
-    font-size: 1.8rem;
-    display: block;
+.footer-brand .logo-img {
+    height: 40px;
     margin-bottom: 16px;
 }
 
