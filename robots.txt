@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://weemake.com.br/sitemap.xml
+Sitemap: https://www.weemake.com.br/sitemap.xml
 
 # Crawl-delay para bots mais agressivos
 Crawl-delay: 1
