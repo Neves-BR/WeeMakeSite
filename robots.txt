@@ -7,11 +7,6 @@ Sitemap: https://www.weemake.com.br/sitemap.xml
 # Crawl-delay para bots mais agressivos
 Crawl-delay: 1
 
-# Bloquear acesso a diretórios de sistema (se houver no futuro)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /tmp/
-
 # Permitir Googlebot e Bingbot total acesso
 User-agent: Googlebot
 Allow: /
