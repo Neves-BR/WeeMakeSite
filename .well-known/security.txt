@@ -1,0 +1,5 @@
+Contact: mailto:security@weemake.com.br
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: pt, en
+Acknowledgments: https://www.weemake.com.br
+Policy: https://www.weemake.com.br
