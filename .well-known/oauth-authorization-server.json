@@ -4,6 +4,8 @@
   "token_endpoint": "https://www.weemake.com.br/oauth/token",
   "jwks_uri": "https://www.weemake.com.br/.well-known/jwks.json",
   "grant_types_supported": ["client_credentials"],
+  "token_endpoint_auth_methods_supported": ["client_secret_basic"],
+  "scopes_supported": ["api:read", "api:write"],
   "agent_auth": {
     "register_uri": "https://www.weemake.com.br/auth.md",
     "supported_identity_types": ["api_key"],
