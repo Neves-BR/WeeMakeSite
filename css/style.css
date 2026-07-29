@@ -1207,28 +1207,24 @@ a {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-
     margin-top: 40px;
     padding-top: 30px;
-
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .trust-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-
     padding: 10px 16px;
-
     background: rgba(255, 255, 255, 0.04);
-
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
-
     color: #d1d5db;
     font-size: 0.9rem;
     transition: 0.25s;
+    text-align: center;
 }
 
 .trust-badge:hover {
@@ -1463,6 +1459,9 @@ a {
         margin: 0 auto;
     }
 
+    /* ============================================
+       FOOTER - MOBILE CORRIGIDO
+       ============================================ */
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1471,21 +1470,32 @@ a {
     }
 
     .footer-brand {
-        align-items: center;
-        text-align: center;
+        width: 100%;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .footer-brand .logo-img {
-        margin: 0 auto 16px;
+        margin: 0 auto 16px auto !important;
+        display: block;
     }
 
     .footer-brand p {
         max-width: none;
         margin: 0 auto;
+        text-align: center;
+    }
+
+    .footer-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .footer-links h4 {
         margin-bottom: 16px;
+        text-align: center;
     }
 
     .footer-links ul {
@@ -1493,22 +1503,44 @@ a {
         flex-direction: column;
         align-items: center;
         gap: 8px;
+        width: 100%;
+        padding: 0;
     }
 
     .footer-links li {
         margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-links a,
+    .footer-links span {
+        display: inline-block;
+        text-align: center;
     }
 
     .footer-bottom {
         padding-top: 24px;
     }
 
+    /* ============================================
+       TRUST BADGES - MOBILE CORRIGIDO
+       ============================================ */
     .trust-badges {
         justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 32px;
+        padding-top: 24px;
     }
 
     .trust-badge {
         width: auto;
+        max-width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.85rem;
+        padding: 8px 14px;
     }
 
     .whatsapp-float {
@@ -1587,19 +1619,32 @@ a {
         font-size: 0.9rem;
     }
 
+    /* ============================================
+       FOOTER - MOBILE PEQUENO CORRIGIDO
+       ============================================ */
+    .footer {
+        padding: 60px 0 24px;
+    }
+
     .footer-grid {
         gap: 28px;
+        margin-bottom: 40px;
     }
 
     .footer-brand .logo-img {
         height: 36px;
     }
 
+    .footer-brand p {
+        font-size: 0.85rem;
+    }
+
     .footer-links h4 {
         font-size: 0.85rem;
     }
 
-    .footer-links a, .footer-links span {
+    .footer-links a,
+    .footer-links span {
         font-size: 0.85rem;
     }
 
@@ -1607,9 +1652,20 @@ a {
         font-size: 0.8rem;
     }
 
+    /* ============================================
+       TRUST BADGES - MOBILE PEQUENO CORRIGIDO
+       ============================================ */
+    .trust-badges {
+        gap: 8px;
+        margin-top: 24px;
+        padding-top: 20px;
+    }
+
     .trust-badge {
         font-size: 0.8rem;
-        padding: 8px 14px;
+        padding: 8px 12px;
+        width: 100%;
+        max-width: 280px;
     }
 }
 
