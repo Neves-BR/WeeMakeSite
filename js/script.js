@@ -453,7 +453,52 @@
             });
         });
     }
-
+// WebMCP — expõe ferramentas do site para agentes de IA
+if (navigator.modelContext && navigator.modelContext.provideContext) {
+  navigator.modelContext.provideContext({
+    tools: [
+      {
+        name: "contact_weemake",
+        description: "Inicia contato com a WeeMake via WhatsApp para orçamento ou dúvidas",
+        inputSchema: {
+          type: "object",
+          properties: {
+            message: {
+              type: "string",
+              description: "Mensagem inicial para enviar pelo WhatsApp"
+            }
+          },
+          required: ["message"]
+        },
+        execute: async (args) => {
+          const url = `https://wa.me/5515996197477?text=${encodeURIComponent(args.message)}`;
+          window.open(url, '_blank');
+          return { success: true, url: url };
+        }
+      },
+      {
+        name: "get_services",
+        description: "Retorna a lista de serviços oferecidos pela WeeMake",
+        inputSchema: {
+          type: "object",
+          properties: {}
+        },
+        execute: async () => {
+          return {
+            services: [
+              "Automação de WhatsApp com IA",
+              "Chatbots Inteligentes",
+              "CRM com IA",
+              "Desenvolvimento de Sites Otimizados (SEO/AEO/GEO)",
+              "SEO Local Google",
+              "ERP Modular (Em breve)"
+            ]
+          };
+        }
+      }
+    ]
+  });
+}
     // ============================================
     // INICIALIZAÇÃO
     // ============================================
