@@ -1230,31 +1230,59 @@ a {
     transition:all .25s ease;
 }
 
+/* ===========================
+   Selos de confiança
+=========================== */
+
+.trust-badges{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:40px;
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.trust-badge{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 16px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:999px;
+
+    color:#d1d5db;
+    font-size:.9rem;
+    transition:.25s;
+}
+
 .trust-badge:hover{
-    transform:translateY(-3px);
+    background:rgba(124,58,237,.15);
     border-color:#8b5cf6;
-    box-shadow:0 8px 24px rgba(139,92,246,.25);
+    color:#fff;
 }
 
 .trust-badge i{
-    font-size:20px;
+    font-size:18px;
     color:#8b5cf6;
-    line-height:1;
 }
 
-.trust-badge span{
-    white-space:nowrap;
-}
-
-@media (max-width:768px){
+@media(max-width:768px){
 
     .trust-badges{
-        flex-direction:column;
-        align-items:stretch;
+        justify-content:center;
     }
 
     .trust-badge{
-        width:100%;
+        width:auto;
     }
 
 }
