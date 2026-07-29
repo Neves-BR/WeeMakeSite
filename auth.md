@@ -1,38 +1,79 @@
-# Agent Registration — WeeMake
+# auth.md — WeeMake Agent Registration
 
-## Overview
-WeeMake provides automation services via WhatsApp with AI, optimized websites, and local SEO. This document describes how AI agents can register and authenticate with our services.
+&gt; **Status**: Manual registration only — no programmatic agent registration available at this time.
+&gt; 
+&gt; WeeMake is a digital marketing agency (WhatsApp automation with AI, optimized websites, local SEO). 
+&gt; We do not currently expose a public API for agent consumption.
 
-## Registration
+---
 
-### For Human Users
-- **WhatsApp**: https://wa.me/5515996197477
-- **Email**: contato@weemake.com.br
-- **Landing Page**: https://lp-ia.weemake.com.br
+## Step 1 — Discover
 
-### For AI Agents
-AI agents should direct users to our WhatsApp or landing page for registration. We do not currently offer direct programmatic registration for agents.
+WeeMake does not publish OAuth Protected Resource Metadata or Authorization Server metadata 
+for agent registration. This auth.md file is provided for transparency and future compatibility.
 
-## Authentication
+---
 
-### Current Methods
-- **API Key**: Contact us to obtain an API key
-- **OAuth 2.0**: Planned for future releases
+## Step 2 — Pick a Method
 
-### OAuth Discovery
-- OpenID Connect: `/.well-known/openid-configuration`
-- OAuth 2.0: `/.well-known/oauth-authorization-server`
-- Protected Resource: `/.well-known/oauth-protected-resource`
+| Method | Availability | Description |
+|--------|--------------|-------------|
+| **Manual Contact** | ✅ Available | Human-led onboarding via WhatsApp or email |
+| **identity_assertion** | ❌ Not available | ID-JAG not supported |
+| **service_auth** | ❌ Not available | No verified email registration endpoint |
+| **anonymous** | ❌ Not available | No anonymous registration endpoint |
 
-## Supported Identity Types
-- `api_key` - API key authentication
-- `oauth2` - OAuth 2.0 (planned)
+**Current path**: Contact WeeMake directly for any integration needs.
 
-## Credential Types
-- `api_key` - Static API key
-- `client_credentials` - OAuth 2.0 client credentials (planned)
+---
+
+## Step 3 — Register
+
+WeeMake does not offer automated agent registration. 
+
+For human users and business inquiries:
+
+- **WhatsApp**: [+55 15 99619-7477](https://wa.me/5515996197477)
+- **Email**: [contato@weemake.com.br](mailto:contato@weemake.com.br)
+- **Landing Page**: [https://lp-ia.weemake.com.br](https://lp-ia.weemake.com.br)
+
+---
+
+## Step 4 — Claim Ceremony
+
+Not applicable. No claim tokens or verification URIs are issued.
+
+---
+
+## Step 5 — Exchange & Use Credential
+
+Not applicable. No OAuth token endpoint is available for agents.
+
+---
+
+## Errors
+
+| Scenario | Response |
+|----------|----------|
+| Agent attempts programmatic registration | `501 Not Implemented` — manual contact required |
+| Invalid or unsupported identity type | `400 unsupported_identity_type` |
+
+---
+
+## Revocation
+
+Not applicable. No active agent registrations to revoke.
+
+---
 
 ## Contact
-For agent integration support:
-- Email: contato@weemake.com.br
-- WhatsApp: https://wa.me/5515996197477
+
+For agent integration inquiries or to discuss future API access:
+
+- **Email**: contato@weemake.com.br
+- **WhatsApp**: https://wa.me/5515996197477
+
+---
+
+*This auth.md file follows the auth.md protocol (WorkOS) for discovery transparency. 
+WeeMake reserves the right to enable programmatic agent registration in the future.*
