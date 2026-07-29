@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentskills.io/schemas/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "link-headers",
+      "type": "discovery",
+      "description": "Link response headers for agent discovery per RFC 8288",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/link-headers/SKILL.md",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "markdown-negotiation",
+      "type": "content-format",
+      "description": "HTML responses as markdown when agents request text/markdown",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/markdown-negotiation/SKILL.md",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "content-signals",
+      "type": "policy",
+      "description": "AI content usage preferences declared in robots.txt",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/content-signals/SKILL.md",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": "api-catalog",
+      "type": "discovery",
+      "description": "API catalog for automated API discovery per RFC 9727",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/api-catalog/SKILL.md",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
