@@ -2,14 +2,7 @@
   "rewrites": [
     {
       "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "text/markdown"
-        }
-      ],
-      "destination": "/api/markdown"
+      "destination": "/api/index"
     }
   ],
   "headers": [
