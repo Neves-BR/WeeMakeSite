@@ -6,7 +6,7 @@ export default async function handler(request) {
   const accept = request.headers.get('accept') || '';
   const url = new URL(request.url);
 
-  // Só processa a raiz (/) e páginas HTML
+  // So processa a raiz (/) e requisicoes com Accept: text/markdown
   if (url.pathname !== '/' || !accept.includes('text/markdown')) {
     return fetch(request);
   }
