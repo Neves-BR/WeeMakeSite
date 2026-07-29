@@ -3,32 +3,21 @@
   "token_endpoint": "https://www.weemake.com.br/oauth2/token",
   "revocation_endpoint": "https://www.weemake.com.br/oauth2/revoke",
   "grant_types_supported": [
-    "urn:ietf:params:oauth:grant-type:jwt-bearer",
-    "urn:workos:agent-auth:grant-type:claim"
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
   ],
 
   "agent_auth": {
     "skill": "https://www.weemake.com.br/auth.md",
     "register_uri": "https://www.weemake.com.br/agent/identity",
-    "claim_uri": "https://www.weemake.com.br/agent/identity/claim",
-    "revocation_uri": "https://www.weemake.com.br/agent/event/notify",
-    "identity_types_supported": ["anonymous", "identity_assertion", "service_auth"],
+    "identity_types_supported": [],
     "identity_assertion": {
-      "assertion_types_supported": [
-        "urn:ietf:params:oauth:token-type:id-jag"
-      ],
-      "credential_types_supported": [
-        "access_token"
-      ]
+      "assertion_types_supported": [],
+      "credential_types_supported": []
     },
     "anonymous": {
-      "credential_types_supported": [
-        "access_token"
-      ],
-      "claim_uri": "https://www.weemake.com.br/agent/identity/claim"
+      "credential_types_supported": [],
+      "claim_uri": null
     },
-    "events_supported": [
-      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
-    ]
+    "events_supported": []
   }
 }
