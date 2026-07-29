@@ -1,5 +1,7 @@
 {
   "resource": "https://www.weemake.com.br/api",
+  "resource_name": "WeeMake API",
+  "resource_logo_uri": "https://www.weemake.com.br/logo.png",
   "authorization_servers": [
     "https://www.weemake.com.br"
   ],
