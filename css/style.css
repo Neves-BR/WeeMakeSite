@@ -296,13 +296,11 @@ a {
     align-items: center;
 }
 
-.logo-img, .logo-img--footer {
+/* CORREÇÃO: separado em regras individuais para evitar width: auto no footer */
+.logo-img {
     width: auto;
     display: block;
     object-fit: contain;
-}
-
-.logo-img {
     height: 44px;
     transition: transform var(--transition-base);
 }
@@ -312,6 +310,8 @@ a {
 }
 
 .logo-img--footer {
+    display: block;
+    object-fit: contain;
     height: 40px;
     margin-bottom: 16px;
 }
@@ -1475,13 +1475,15 @@ a {
 
     .footer-brand {
         width: 100%;
-        align-items: center !important;
-        text-align: center !important;
+        align-items: center;
+        text-align: center;
     }
 
     .footer-brand .logo-img {
-        margin: 0 auto 16px auto !important;
+        margin: 0 auto 16px;
         display: block;
+        max-width: 200px;
+        width: 100%;
     }
 
     .footer-brand p {
