@@ -1,14 +1,14 @@
 User-agent: *
 Allow: /
 
+# Content Signals - AI content usage preferences
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
 # Sitemap
 Sitemap: https://www.weemake.com.br/sitemap.xml
 
 # Crawl-delay para bots mais agressivos
 Crawl-delay: 1
-
-# Content Signals — declara preferências de uso de conteúdo por IA
-Content-Signal: ai-train=no, search=yes, ai-input=no
 
 # Permitir Googlebot e Bingbot total acesso
 User-agent: Googlebot
