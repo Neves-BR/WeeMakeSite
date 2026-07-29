@@ -1,0 +1,11 @@
+{
+  "issuer": "https://www.weemake.com.br",
+  "authorization_endpoint": "https://www.weemake.com.br/oauth/authorize",
+  "token_endpoint": "https://www.weemake.com.br/oauth/token",
+  "userinfo_endpoint": "https://www.weemake.com.br/oauth/userinfo",
+  "jwks_uri": "https://www.weemake.com.br/.well-known/jwks.json",
+  "response_types_supported": ["code", "token"],
+  "grant_types_supported": ["authorization_code", "client_credentials"],
+  "token_endpoint_auth_methods_supported": ["client_secret_basic", "client_secret_post"],
+  "scopes_supported": ["openid", "profile", "email", "api:read", "api:write"]
+}
