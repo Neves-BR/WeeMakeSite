@@ -4,7 +4,6 @@ export const config = {
 
 export default async function handler(request) {
   const accept = request.headers.get('accept') || '';
-  const url = new URL(request.url);
 
   // Markdown negotiation
   if (accept.includes('text/markdown')) {
@@ -53,7 +52,8 @@ Ha 4 anos construindo solucoes de software e design. Em 2025, evoluimos para IA 
     );
   }
 
-  // Para qualquer outro caso, serve index.html estatico
-  url.pathname = '/index.html';
+  // Para HTML e outros, serve home.html
+  const url = new URL(request.url);
+  url.pathname = '/home.html';
   return fetch(new Request(url, request));
 }
