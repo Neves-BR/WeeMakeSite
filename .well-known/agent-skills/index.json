@@ -6,28 +6,63 @@
       "type": "discovery",
       "description": "Link response headers for agent discovery per RFC 8288",
       "url": "https://www.weemake.com.br/.well-known/agent-skills/link-headers/SKILL.md",
-      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      "digest": "sha256:e00b3e2f2ee360573df0b3140f579ba29e0800cd980cac6ea988c969229f1f05"
     },
     {
       "name": "markdown-negotiation",
       "type": "content-format",
       "description": "HTML responses as markdown when agents request text/markdown",
       "url": "https://www.weemake.com.br/.well-known/agent-skills/markdown-negotiation/SKILL.md",
-      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      "digest": "sha256:f29ad1b82608ec1c7320934f8d395f67ab8e68f9f645c839a5467c882852bd99"
     },
     {
       "name": "content-signals",
       "type": "policy",
       "description": "AI content usage preferences declared in robots.txt",
       "url": "https://www.weemake.com.br/.well-known/agent-skills/content-signals/SKILL.md",
-      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      "digest": "sha256:eead81386c8453693693ec64ba7d3a593670f099e7c558189ed56f8705c8fdf0"
     },
     {
       "name": "api-catalog",
       "type": "discovery",
       "description": "API catalog for automated API discovery per RFC 9727",
       "url": "https://www.weemake.com.br/.well-known/agent-skills/api-catalog/SKILL.md",
-      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      "digest": "sha256:f74ac89c9f76b4d04bfe4a54e7f35d854ae217d8f91ee3cbdf30b0aa976870cc"
+    },
+    {
+      "name": "webmcp",
+      "type": "integration",
+      "description": "WebMCP tools exposed to AI agents via browser",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/webmcp/SKILL.md",
+      "digest": "sha256:13842d8542379147325fbab7d4a9c46a08f9a6ac07af5bcbf224d2c443747aca"
+    },
+    {
+      "name": "mcp-server-card",
+      "type": "discovery",
+      "description": "MCP Server Card for agent discovery (SEP-1649)",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/mcp-server-card/SKILL.md",
+      "digest": "sha256:5c2d461a66ba02c6a8681a3f9bb1e1086bd1a9a6477625cae1156928fe23e10f"
+    },
+    {
+      "name": "oauth-discovery",
+      "type": "authentication",
+      "description": "OAuth/OIDC discovery metadata for agent authentication",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/oauth-discovery/SKILL.md",
+      "digest": "sha256:8e226a7a4d7ad1e7ab4d0ac87c21d263c36c9e57f847a1add11000b003a2506e"
+    },
+    {
+      "name": "oauth-protected-resource",
+      "type": "authentication",
+      "description": "OAuth Protected Resource Metadata for agent authentication",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/oauth-protected-resource/SKILL.md",
+      "digest": "sha256:78a953d0063e398214a9a336cd0f015f5664b2aefa07e0b40441d6633431afba"
+    },
+    {
+      "name": "auth-md",
+      "type": "authentication",
+      "description": "Auth.md metadata for agent registration",
+      "url": "https://www.weemake.com.br/.well-known/agent-skills/auth-md/SKILL.md",
+      "digest": "sha256:7cbf35f3a2cccb7ea8f128063eb364d03cc25f9d39a323804e0b56eeeac3427a"
     }
   ]
 }
