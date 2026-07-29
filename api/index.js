@@ -4,16 +4,11 @@ export const config = {
 
 export default async function handler(request) {
   const accept = request.headers.get('accept') || '';
-  const url = new URL(request.url);
 
-  // So processa a raiz (/) e requisicoes com Accept: text/markdown
-  if (url.pathname !== '/' || !accept.includes('text/markdown')) {
-    return fetch(request);
-  }
-
-  // Retorna markdown para agentes
-  return new Response(
-    `# WeeMake
+  // Se Accept contém text/markdown, retorna markdown
+  if (accept.includes('text/markdown')) {
+    return new Response(
+      `# WeeMake
 
 **Automacao de WhatsApp com IA**, Sites Otimizados e SEO Local Google.
 
@@ -46,13 +41,20 @@ Ha 4 anos construindo solucoes de software e design. Em 2025, evoluimos para IA 
 - API Catalog: https://www.weemake.com.br/.well-known/api-catalog
 - Agent Skills: https://www.weemake.com.br/.well-known/agent-skills/index.json
 - Auth: https://www.weemake.com.br/auth.md`,
-    {
-      status: 200,
-      headers: {
-        'Content-Type': 'text/markdown; charset=utf-8',
-        'X-Markdown-Tokens': '512',
-        'Vary': 'Accept',
-      },
-    }
-  );
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/markdown; charset=utf-8',
+          'X-Markdown-Tokens': '512',
+          'Vary': 'Accept',
+        },
+      }
+    );
+  }
+
+  // Para todos os outros casos (HTML, etc), serve o index.html estatico
+  const url = new URL(request.url);
+  url.pathname = '/index.html';
+  
+  return fetch(new Request(url, request));
 }
