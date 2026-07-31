@@ -1,6 +1,6 @@
 /**
  * WEE MAKE - Scripts do Site
- * Animações, interatividade e otimizações
+ * Animações, interatividade, otimizações e sistema de idiomas (i18n)
  */
 
 (function() {
@@ -17,6 +17,626 @@
             clearTimeout(timeout);
             timeout = setTimeout(() => fn(...args), delay);
         };
+    };
+
+    // ============================================
+    // SISTEMA DE INTERNACIONALIZAÇÃO (i18n)
+    // ============================================
+    const i18n = {
+        currentLang: 'pt-BR',
+        
+        translations: {
+            'pt-BR': {
+                // Navegação
+                'nav.home': 'Início',
+                'nav.solutions': 'Soluções',
+                'nav.howItWorks': 'Como Funciona',
+                'nav.about': 'Sobre',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contato',
+                'nav.whatsapp': 'Falar no WhatsApp',
+                
+                // Hero
+                'hero.badge': 'Tecnologia que escala negócios',
+                'hero.title1': 'Automação de ',
+                'hero.titleHighlight': 'WhatsApp com IA',
+                'hero.title2': ', Sites Otimizados e SEO Local Google',
+                'hero.description': 'Impulsione suas vendas com automações inteligentes de IA, desenvolva sites otimizados para SEO, AEO e GEO, e conquiste o topo do Google com nossa especialidade em SEO Local para empresas.',
+                'hero.ctaPrimary': 'Conheça as Automações',
+                'hero.ctaSecondary': 'Ver Soluções',
+                'hero.stat1': 'Anos de experiência',
+                'hero.stat2': 'Atendimento com IA',
+                'hero.stat3': 'Personalizável',
+                'hero.scroll': 'Role para explorar',
+                
+                // Soluções
+                'solutions.tag': 'Nossas Soluções',
+                'solutions.title1': 'Tecnologia sob medida para ',
+                'solutions.titleHighlight': 'escalar seu negócio',
+                'solutions.subtitle': 'Quatro vertentes de soluções que se complementam para transformar sua operação e presença digital',
+                
+                'solutions.card1.badge': 'Mais Popular',
+                'solutions.card1.title': 'Inteligência e Automação',
+                'solutions.card1.description': 'Revolucione seu atendimento e conversão com tecnologia de ponta. Nossas automações completas de WhatsApp com IA operam 24/7, qualificando leads, respondendo dúvidas e conduzindo vendas de forma humanizada.',
+                'solutions.card1.feature1': 'Chatbots avançados com IA generativa',
+                'solutions.card1.feature2': 'Gestão de CRM integrada',
+                'solutions.card1.feature3': 'Estruturação de funis de vendas',
+                'solutions.card1.feature4': 'Gerenciamento automatizado de redes sociais',
+                'solutions.card1.cta': 'Saber mais sobre Automações',
+                
+                'solutions.card2.badge': 'Em Breve',
+                'solutions.card2.title': 'Sistemas de Gestão (ERP)',
+                'solutions.card2.description': 'Controle total da sua operação em uma única plataforma. Nossos ERPs modulares se adaptam a diversos nichos de mercado, garantindo que você pague apenas pelas ferramentas que sua empresa realmente precisa.',
+                'solutions.card2.feature1': 'Módulos sob demanda',
+                'solutions.card2.feature2': 'Adaptável ao seu nicho',
+                'solutions.card2.feature3': 'Dashboards em tempo real',
+                'solutions.card2.feature4': 'Integração com automações de IA',
+                'solutions.card2.cta': 'Em breve',
+                
+                'solutions.card3.badge': 'Novo',
+                'solutions.card3.title': 'Desenvolvimento de Sites',
+                'solutions.card3.description': 'Criamos sites de alta performance otimizados para as três camadas da busca moderna: SEO tradicional, AEO para respostas diretas e assistentes de voz, e GEO para IA generativa como ChatGPT e Gemini.',
+                'solutions.card3.feature1': 'SEO técnico e estratégico avançado',
+                'solutions.card3.feature2': 'AEO — otimização para respostas diretas',
+                'solutions.card3.feature3': 'GEO — otimização para IA generativa',
+                'solutions.card3.feature4': 'Performance, acessibilidade e Core Web Vitals',
+                'solutions.card3.cta': 'Solicitar orçamento para Sites',
+                
+                'solutions.card4.badge': 'Especialista Google',
+                'solutions.card4.title': 'SEO Local para Empresas',
+                'solutions.card4.description': 'Seja encontrado por quem está perto e pronto para comprar. Como especialistas Google em SEO Local, posicionamos sua empresa no Google Business Profile, Google Maps e busca local, gerando mais ligações, visitas e vendas.',
+                'solutions.card4.feature1': 'Otimização completa do Google Business Profile',
+                'solutions.card4.feature2': 'Estratégia de citações locais e NAP consistente',
+                'solutions.card4.feature3': 'Gestão de avaliações e reputação local',
+                'solutions.card4.feature4': 'Relatórios mensais de ranking e conversões',
+                'solutions.card4.cta': 'Quero aparecer no Google',
+                
+                // Como Funciona
+                'howItWorks.tag': 'Processo',
+                'howItWorks.title1': 'Como a ',
+                'howItWorks.title2': ' transforma seu atendimento',
+                'howItWorks.subtitle': 'De diagnóstico a operação em 5 passos simples',
+                'howItWorks.step1.title': 'Diagnóstico do Funil',
+                'howItWorks.step1.description': 'Analisamos seu processo de vendas atual, identificando gargalos e oportunidades de automação no atendimento via WhatsApp.',
+                'howItWorks.step2.title': 'IA Personalizada',
+                'howItWorks.step2.description': 'Treinamos a inteligência artificial com o tom de voz da sua marca, produtos, serviços e respostas frequentes dos clientes.',
+                'howItWorks.step3.title': 'Integração Completa',
+                'howItWorks.step3.description': 'Conectamos o chatbot ao seu CRM, calendário, sistema de pagamentos e outras ferramentas essenciais do seu negócio.',
+                'howItWorks.step4.title': 'Testes e Ajustes',
+                'howItWorks.step4.description': 'Realizamos testes extensivos para garantir que a IA responda de forma natural e eficiente, ajustando conforme necessário.',
+                'howItWorks.step5.title': 'Go-live e Monitoramento',
+                'howItWorks.step5.description': 'A automação entra no ar e monitoramos o desempenho, fazendo melhorias contínuas com base nos dados reais.',
+                
+                // Sobre
+                'about.tag': 'Sobre Nós',
+                'about.title1': 'De software e design à ',
+                'about.titleHighlight': 'Inteligência Artificial',
+                'about.paragraph1': 'Nossa história começou há <strong>4 anos</strong>, construindo soluções através de softwares e design gráfico. Ao longo dessa jornada, percebemos que pequenos e médios negócios precisavam de algo além: <strong>escalar o atendimento sem perder a proximidade com o cliente</strong>.',
+                'about.paragraph2': 'Por isso, em <strong>2025</strong>, evoluímos. Trouxemos a Inteligência Artificial para o nosso DNA, especializando-nos em <strong>automações de WhatsApp humanizadas</strong>, <strong>sites otimizados para SEO, AEO e GEO</strong>, e <strong>SEO Local no Google</strong>.',
+                'about.paragraph3': 'Hoje, transformamos a rotina da sua empresa com tecnologia sob medida e eficiência real. Cada solução é pensada para gerar resultados mensuráveis desde o primeiro dia.',
+                'about.cta': 'Descubra nossas Automações',
+                'about.card1.title': 'Software Sob Medida',
+                'about.card1.description': 'Desenvolvemos soluções personalizadas que se adaptam perfeitamente aos processos do seu negócio.',
+                'about.card2.title': 'Segurança e Confiabilidade',
+                'about.card2.description': 'Infraestrutura robusta com criptografia de ponta a ponta e conformidade com LGPD.',
+                'about.card3.title': 'Resultados Imediatos',
+                'about.card3.description': 'Implementação ágil com métricas claras de ROI desde o primeiro mês de operação.',
+                
+                // FAQ
+                'faq.tag': 'Dúvidas Frequentes',
+                'faq.title1': 'Perguntas que recebemos com ',
+                'faq.titleHighlight': 'frequência',
+                'faq.subtitle': 'Tudo o que você precisa saber sobre nossas soluções',
+                'faq.q1.question': 'O que é automação de WhatsApp com IA?',
+                'faq.q1.answer': 'Automação de WhatsApp com IA é uma tecnologia que utiliza inteligência artificial para responder mensagens automaticamente, qualificar leads, agendar reuniões e conduzir conversas de vendas no WhatsApp de forma humanizada, 24 horas por dia, 7 dias por semana. A IA aprende com o tempo, melhorando suas respostas com base nas interações reais.',
+                'faq.q2.question': 'O que é SEO, AEO e GEO e por que meu site precisa disso?',
+                'faq.q2.answer': '<strong>SEO (Search Engine Optimization)</strong> otimiza seu site para aparecer nas buscas orgânicas do Google. <strong>AEO (Answer Engine Optimization)</strong> posiciona seu conteúdo para respostas diretas e assistentes de voz como Alexa e Google Assistente. <strong>GEO (Generative Engine Optimization)</strong> otimiza seu site para ser citado por IA generativa como ChatGPT, Gemini e Claude. Juntos, garantem visibilidade máxima em todos os canais de busca modernos — não apenas no Google, mas também nas IAs que as pessoas usam cada vez mais.',
+                'faq.q3.question': 'O que é SEO Local e como ele ajuda minha empresa?',
+                'faq.q3.answer': '<strong>SEO Local</strong> é a otimização da presença da sua empresa nas buscas geolocalizadas do Google — Google Maps, Google Business Profile e resultados de "perto de mim". Como <strong>especialistas Google em SEO Local</strong>, otimizamos seu perfil, gerenciamos avaliações, criamos citações locais consistentes e implementamos schema markup local. O resultado: mais ligações, mais visitas à loja e mais vendas de clientes que estão a poucos quilômetros de você e prontos para comprar.',
+                'faq.q4.question': 'Quanto custa implementar um chatbot de IA no WhatsApp?',
+                'faq.q4.answer': 'O investimento varia conforme o volume de atendimento e as funcionalidades necessárias. A WeeMake oferece planos flexíveis adaptados ao tamanho do seu negócio. Entre em contato pelo WhatsApp <a href="https://wa.me/5515996197477">(15) 99619-7477</a> para um orçamento personalizado sem compromisso.',
+                'faq.q5.question': 'Como funciona o ERP modular da WeeMake?',
+                'faq.q5.answer': 'Nossos ERPs modulares permitem que você escolha apenas os módulos que sua empresa precisa — como vendas, estoque, financeiro, RH e analytics — pagando apenas pelo que utiliza. Cada módulo se integra perfeitamente aos outros, criando um ecossistema de gestão completo e escalável.',
+                'faq.q6.question': 'A automação de WhatsApp funciona para qualquer tipo de negócio?',
+                'faq.q6.answer': 'Sim! Nossas soluções de automação de WhatsApp com IA são adaptáveis a diversos nichos: e-commerce, clínicas, imobiliárias, academias, consultórios, restaurantes, escolas e muito mais. A IA é treinada especificamente para o contexto do seu negócio, garantindo respostas relevantes e personalizadas.',
+                'faq.q7.question': 'Quanto tempo leva para implementar a automação?',
+                'faq.q7.answer': 'A implementação inicial pode ser feita em poucos dias. O tempo exato depende da complexidade do funil de vendas e das integrações necessárias. Após a configuração, a IA começa a operar imediatamente e vai aprimorando suas respostas com o tempo através de machine learning.',
+                'faq.q8.question': 'Preciso ter conhecimento técnico para usar?',
+                'faq.q8.answer': 'Não! Nossas soluções são projetadas para serem intuitivas. Oferecemos treinamento completo e suporte contínuo. A interface é amigável e nossa equipe cuida de toda a parte técnica, desde a configuração inicial até as atualizações e manutenção.',
+                
+                // CTA
+                'cta.title1': 'Pronto para ',
+                'cta.titleHighlight': 'escalar',
+                'cta.title2': ' seu negócio?',
+                'cta.description': 'Transforme seu atendimento, conquiste o Google e veja resultados reais em poucos dias. Nossa equipe está pronta para entender suas necessidades e propor a melhor solução.',
+                'cta.button1': 'Falar no WhatsApp',
+                'cta.button2': 'Conhecer Automações',
+                
+                // Contato
+                'contact.tag': 'Contato',
+                'contact.title1': 'Vamos ',
+                'contact.titleHighlight': 'conversar',
+                'contact.subtitle': 'Escolha o canal que preferir e fale com a gente',
+                'contact.whatsapp.title': 'WhatsApp',
+                'contact.whatsapp.description': 'Tem dúvidas ou quer um orçamento? Fale diretamente com a nossa equipe de forma rápida e prática.',
+                'contact.whatsapp.action': 'Chamar agora',
+                'contact.instagram.title': 'Instagram',
+                'contact.instagram.description': 'Acompanhe nossos bastidores, dicas de tecnologia e novidades sobre IA para negócios.',
+                'contact.instagram.action': 'Seguir no Instagram',
+                'contact.email.title': 'Email',
+                'contact.email.description': 'Prefere email? Envie sua mensagem e responderemos em até 24 horas úteis.',
+                'contact.email.action': 'Enviar email',
+                
+                // Footer
+                'footer.tagline1': 'Tecnologia que escala negócios.',
+                'footer.tagline2': 'Automação de WhatsApp com IA, sites otimizados para SEO/AEO/GEO e SEO Local Google para empresas que querem crescer.',
+                'footer.nav.title': 'Navegação',
+                'footer.nav.home': 'Início',
+                'footer.nav.solutions': 'Soluções',
+                'footer.nav.howItWorks': 'Como Funciona',
+                'footer.nav.about': 'Sobre',
+                'footer.nav.faq': 'FAQ',
+                'footer.nav.contact': 'Contato',
+                'footer.services.title': 'Serviços',
+                'footer.services.service1': 'Automação WhatsApp',
+                'footer.services.service2': 'Chatbots com IA',
+                'footer.services.service3': 'CRM Inteligente',
+                'footer.services.service4': 'Sites Otimizados (SEO/AEO/GEO)',
+                'footer.services.service5': 'Especialista Google SEO Local',
+                'footer.services.service6': 'ERP Modular (Em breve)',
+                'footer.contact.title': 'Contato',
+                'footer.contact.whatsapp': 'WhatsApp: (15) 99619-7477',
+                'footer.contact.email': 'contato@weemake.com.br',
+                'footer.contact.instagram': '@weemake.ai',
+                'footer.copyright': '©2026 WeeMake. Todos os direitos reservados.',
+                'footer.slogan': 'Tecnologia de ponta para empresas que querem mais.',
+                'footer.developed': 'Desenvolvido por WeeMake.',
+                'footer.brazil': 'Uma empresa brasileira'
+            },
+            
+            'en': {
+                // Navigation
+                'nav.home': 'Home',
+                'nav.solutions': 'Solutions',
+                'nav.howItWorks': 'How It Works',
+                'nav.about': 'About',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.whatsapp': 'Chat on WhatsApp',
+                
+                // Hero
+                'hero.badge': 'Technology that scales businesses',
+                'hero.title1': 'WhatsApp Automation with ',
+                'hero.titleHighlight': 'AI',
+                'hero.title2': ', Optimized Websites & Google Local SEO',
+                'hero.description': 'Boost your sales with intelligent AI automations, develop websites optimized for SEO, AEO, and GEO, and conquer the top of Google with our expertise in Local SEO for businesses.',
+                'hero.ctaPrimary': 'Discover Automations',
+                'hero.ctaSecondary': 'View Solutions',
+                'hero.stat1': 'Years of experience',
+                'hero.stat2': 'AI-powered support',
+                'hero.stat3': 'Customizable',
+                'hero.scroll': 'Scroll to explore',
+                
+                // Solutions
+                'solutions.tag': 'Our Solutions',
+                'solutions.title1': 'Tailored technology to ',
+                'solutions.titleHighlight': 'scale your business',
+                'solutions.subtitle': 'Four complementary solution lines to transform your operations and digital presence',
+                
+                'solutions.card1.badge': 'Most Popular',
+                'solutions.card1.title': 'Intelligence & Automation',
+                'solutions.card1.description': 'Revolutionize your customer service and conversion with cutting-edge technology. Our complete WhatsApp AI automations operate 24/7, qualifying leads, answering questions, and driving sales in a humanized way.',
+                'solutions.card1.feature1': 'Advanced chatbots with generative AI',
+                'solutions.card1.feature2': 'Integrated CRM management',
+                'solutions.card1.feature3': 'Sales funnel structuring',
+                'solutions.card1.feature4': 'Automated social media management',
+                'solutions.card1.cta': 'Learn more about Automations',
+                
+                'solutions.card2.badge': 'Coming Soon',
+                'solutions.card2.title': 'Management Systems (ERP)',
+                'solutions.card2.description': 'Total control of your operation on a single platform. Our modular ERPs adapt to various market niches, ensuring you only pay for the tools your company really needs.',
+                'solutions.card2.feature1': 'On-demand modules',
+                'solutions.card2.feature2': 'Adaptable to your niche',
+                'solutions.card2.feature3': 'Real-time dashboards',
+                'solutions.card2.feature4': 'Integration with AI automations',
+                'solutions.card2.cta': 'Coming soon',
+                
+                'solutions.card3.badge': 'New',
+                'solutions.card3.title': 'Website Development',
+                'solutions.card3.description': 'We create high-performance websites optimized for the three layers of modern search: traditional SEO, AEO for direct answers and voice assistants, and GEO for generative AI like ChatGPT and Gemini.',
+                'solutions.card3.feature1': 'Advanced technical & strategic SEO',
+                'solutions.card3.feature2': 'AEO — optimization for direct answers',
+                'solutions.card3.feature3': 'GEO — optimization for generative AI',
+                'solutions.card3.feature4': 'Performance, accessibility & Core Web Vitals',
+                'solutions.card3.cta': 'Request a quote for Websites',
+                
+                'solutions.card4.badge': 'Google Specialist',
+                'solutions.card4.title': 'Local SEO for Businesses',
+                'solutions.card4.description': 'Get found by those nearby and ready to buy. As Google Local SEO specialists, we position your business on Google Business Profile, Google Maps, and local search, generating more calls, visits, and sales.',
+                'solutions.card4.feature1': 'Complete Google Business Profile optimization',
+                'solutions.card4.feature2': 'Local citations strategy & consistent NAP',
+                'solutions.card4.feature3': 'Review & local reputation management',
+                'solutions.card4.feature4': 'Monthly ranking & conversion reports',
+                'solutions.card4.cta': 'I want to appear on Google',
+                
+                // How It Works
+                'howItWorks.tag': 'Process',
+                'howItWorks.title1': 'How ',
+                'howItWorks.title2': ' transforms your customer service',
+                'howItWorks.subtitle': 'From diagnosis to operation in 5 simple steps',
+                'howItWorks.step1.title': 'Funnel Diagnosis',
+                'howItWorks.step1.description': 'We analyze your current sales process, identifying bottlenecks and automation opportunities in WhatsApp customer service.',
+                'howItWorks.step2.title': 'Custom AI',
+                'howItWorks.step2.description': 'We train the artificial intelligence with your brand voice, products, services, and frequent customer responses.',
+                'howItWorks.step3.title': 'Complete Integration',
+                'howItWorks.step3.description': 'We connect the chatbot to your CRM, calendar, payment system, and other essential business tools.',
+                'howItWorks.step4.title': 'Testing & Fine-tuning',
+                'howItWorks.step4.description': 'We conduct extensive testing to ensure the AI responds naturally and efficiently, adjusting as needed.',
+                'howItWorks.step5.title': 'Go-live & Monitoring',
+                'howItWorks.step5.description': 'The automation goes live and we monitor performance, making continuous improvements based on real conversation data.',
+                
+                // About
+                'about.tag': 'About Us',
+                'about.title1': 'From software and design to ',
+                'about.titleHighlight': 'Artificial Intelligence',
+                'about.paragraph1': 'Our story began <strong>4 years ago</strong>, building solutions through software and graphic design. Along this journey, we realized that small and medium businesses needed something more: <strong>scaling customer service without losing proximity to the client</strong>.',
+                'about.paragraph2': 'That is why, in <strong>2025</strong>, we evolved. We brought Artificial Intelligence into our DNA, specializing in <strong>humanized WhatsApp automations</strong>, <strong>websites optimized for SEO, AEO, and GEO</strong>, and <strong>Local SEO on Google</strong>.',
+                'about.paragraph3': 'Today, we transform your company routine with tailor-made technology and real efficiency. Every solution is designed to generate measurable results from day one.',
+                'about.cta': 'Discover our Automations',
+                'about.card1.title': 'Tailor-made Software',
+                'about.card1.description': 'We develop customized solutions that perfectly adapt to your business processes.',
+                'about.card2.title': 'Security & Reliability',
+                'about.card2.description': 'Robust infrastructure with end-to-end encryption and LGPD compliance.',
+                'about.card3.title': 'Immediate Results',
+                'about.card3.description': 'Agile implementation with clear ROI metrics from the first month of operation.',
+                
+                // FAQ
+                'faq.tag': 'Frequently Asked Questions',
+                'faq.title1': 'Questions we get asked ',
+                'faq.titleHighlight': 'frequently',
+                'faq.subtitle': 'Everything you need to know about our solutions',
+                'faq.q1.question': 'What is WhatsApp automation with AI?',
+                'faq.q1.answer': 'WhatsApp automation with AI is a technology that uses artificial intelligence to automatically respond to messages, qualify leads, schedule meetings, and conduct sales conversations on WhatsApp in a humanized way, 24 hours a day, 7 days a week. The AI learns over time, improving its responses based on real interactions.',
+                'faq.q2.question': 'What is SEO, AEO, and GEO, and why does my website need them?',
+                'faq.q2.answer': '<strong>SEO (Search Engine Optimization)</strong> optimizes your website to appear in Google organic searches. <strong>AEO (Answer Engine Optimization)</strong> positions your content for direct answers and voice assistants like Alexa and Google Assistant. <strong>GEO (Generative Engine Optimization)</strong> optimizes your website to be cited by generative AI like ChatGPT, Gemini, and Claude. Together, they ensure maximum visibility across all modern search channels — not just Google, but also the AIs people use more and more.',
+                'faq.q3.question': 'What is Local SEO and how does it help my business?',
+                'faq.q3.answer': '<strong>Local SEO</strong> is the optimization of your business presence in Google geolocated searches — Google Maps, Google Business Profile, and "near me" results. As <strong>Google Local SEO specialists</strong>, we optimize your profile, manage reviews, create consistent local citations, and implement local schema markup. The result: more calls, more store visits, and more sales from customers just a few kilometers away and ready to buy.',
+                'faq.q4.question': 'How much does it cost to implement an AI chatbot on WhatsApp?',
+                'faq.q4.answer': 'The investment varies according to the volume of customer service and the features needed. WeeMake offers flexible plans adapted to the size of your business. Contact us on WhatsApp <a href="https://wa.me/5515996197477">(15) 99619-7477</a> for a personalized quote with no commitment.',
+                'faq.q5.question': 'How does the WeeMake modular ERP work?',
+                'faq.q5.answer': 'Our modular ERPs allow you to choose only the modules your company needs — such as sales, inventory, finance, HR, and analytics — paying only for what you use. Each module integrates perfectly with the others, creating a complete and scalable management ecosystem.',
+                'faq.q6.question': 'Does WhatsApp automation work for any type of business?',
+                'faq.q6.answer': 'Yes! Our WhatsApp AI automation solutions are adaptable to various niches: e-commerce, clinics, real estate, gyms, offices, restaurants, schools, and much more. The AI is specifically trained for your business context, ensuring relevant and personalized responses.',
+                'faq.q7.question': 'How long does it take to implement the automation?',
+                'faq.q7.answer': 'The initial implementation can be done in a few days. The exact time depends on the complexity of the sales funnel and the necessary integrations. After configuration, the AI starts operating immediately and improves its responses over time through machine learning.',
+                'faq.q8.question': 'Do I need technical knowledge to use it?',
+                'faq.q8.answer': 'No! Our solutions are designed to be intuitive. We offer complete training and ongoing support. The interface is user-friendly and our team handles all the technical aspects, from initial setup to updates and maintenance.',
+                
+                // CTA
+                'cta.title1': 'Ready to ',
+                'cta.titleHighlight': 'scale',
+                'cta.title2': ' your business?',
+                'cta.description': 'Transform your customer service, conquer Google, and see real results in just a few days. Our team is ready to understand your needs and propose the best solution.',
+                'cta.button1': 'Chat on WhatsApp',
+                'cta.button2': 'Discover Automations',
+                
+                // Contact
+                'contact.tag': 'Contact',
+                'contact.title1': 'Let\'s ',
+                'contact.titleHighlight': 'talk',
+                'contact.subtitle': 'Choose your preferred channel and get in touch',
+                'contact.whatsapp.title': 'WhatsApp',
+                'contact.whatsapp.description': 'Have questions or want a quote? Talk directly to our team quickly and easily.',
+                'contact.whatsapp.action': 'Chat now',
+                'contact.instagram.title': 'Instagram',
+                'contact.instagram.description': 'Follow our behind-the-scenes, technology tips, and AI news for business.',
+                'contact.instagram.action': 'Follow on Instagram',
+                'contact.email.title': 'Email',
+                'contact.email.description': 'Prefer email? Send your message and we will respond within 24 business hours.',
+                'contact.email.action': 'Send email',
+                
+                // Footer
+                'footer.tagline1': 'Technology that scales businesses.',
+                'footer.tagline2': 'WhatsApp automation with AI, websites optimized for SEO/AEO/GEO, and Google Local SEO for companies that want to grow.',
+                'footer.nav.title': 'Navigation',
+                'footer.nav.home': 'Home',
+                'footer.nav.solutions': 'Solutions',
+                'footer.nav.howItWorks': 'How It Works',
+                'footer.nav.about': 'About',
+                'footer.nav.faq': 'FAQ',
+                'footer.nav.contact': 'Contact',
+                'footer.services.title': 'Services',
+                'footer.services.service1': 'WhatsApp Automation',
+                'footer.services.service2': 'AI Chatbots',
+                'footer.services.service3': 'Smart CRM',
+                'footer.services.service4': 'Optimized Websites (SEO/AEO/GEO)',
+                'footer.services.service5': 'Google Local SEO Specialist',
+                'footer.services.service6': 'Modular ERP (Coming soon)',
+                'footer.contact.title': 'Contact',
+                'footer.contact.whatsapp': 'WhatsApp: (15) 99619-7477',
+                'footer.contact.email': 'contato@weemake.com.br',
+                'footer.contact.instagram': '@weemake.ai',
+                'footer.copyright': '©2026 WeeMake. All rights reserved.',
+                'footer.slogan': 'Cutting-edge technology for companies that want more.',
+                'footer.developed': 'Developed by WeeMake.',
+                'footer.brazil': 'A Brazilian company'
+            },
+            
+            'es': {
+                // Navegación
+                'nav.home': 'Inicio',
+                'nav.solutions': 'Soluciones',
+                'nav.howItWorks': 'Cómo Funciona',
+                'nav.about': 'Nosotros',
+                'nav.faq': 'Preguntas Frecuentes',
+                'nav.contact': 'Contacto',
+                'nav.whatsapp': 'Hablar por WhatsApp',
+                
+                // Hero
+                'hero.badge': 'Tecnología que escala negocios',
+                'hero.title1': 'Automatización de WhatsApp con ',
+                'hero.titleHighlight': 'IA',
+                'hero.title2': ', Sitios Optimizados y SEO Local Google',
+                'hero.description': 'Impulse sus ventas con automatizaciones inteligentes de IA, desarrolle sitios optimizados para SEO, AEO y GEO, y conquiste la cima de Google con nuestra especialidad en SEO Local para empresas.',
+                'hero.ctaPrimary': 'Conocer las Automatizaciones',
+                'hero.ctaSecondary': 'Ver Soluciones',
+                'hero.stat1': 'Años de experiencia',
+                'hero.stat2': 'Atención con IA',
+                'hero.stat3': 'Personalizable',
+                'hero.scroll': 'Desplaza para explorar',
+                
+                // Soluciones
+                'solutions.tag': 'Nuestras Soluciones',
+                'solutions.title1': 'Tecnología a medida para ',
+                'solutions.titleHighlight': 'escalar su negocio',
+                'solutions.subtitle': 'Cuatro vertientes de soluciones que se complementan para transformar su operación y presencia digital',
+                
+                'solutions.card1.badge': 'Más Popular',
+                'solutions.card1.title': 'Inteligencia y Automatización',
+                'solutions.card1.description': 'Revolucione su atención y conversión con tecnología de punta. Nuestras automatizaciones completas de WhatsApp con IA operan 24/7, calificando leads, respondiendo dudas y conduciendo ventas de forma humanizada.',
+                'solutions.card1.feature1': 'Chatbots avanzados con IA generativa',
+                'solutions.card1.feature2': 'Gestión de CRM integrada',
+                'solutions.card1.feature3': 'Estructuración de embudos de ventas',
+                'solutions.card1.feature4': 'Gestión automatizada de redes sociales',
+                'solutions.card1.cta': 'Saber más sobre Automatizaciones',
+                
+                'solutions.card2.badge': 'Próximamente',
+                'solutions.card2.title': 'Sistemas de Gestión (ERP)',
+                'solutions.card2.description': 'Control total de su operación en una única plataforma. Nuestros ERPs modulares se adaptan a diversos nichos de mercado, garantizando que pague solo por las herramientas que su empresa realmente necesita.',
+                'solutions.card2.feature1': 'Módulos bajo demanda',
+                'solutions.card2.feature2': 'Adaptable a su nicho',
+                'solutions.card2.feature3': 'Dashboards en tiempo real',
+                'solutions.card2.feature4': 'Integración con automatizaciones de IA',
+                'solutions.card2.cta': 'Próximamente',
+                
+                'solutions.card3.badge': 'Nuevo',
+                'solutions.card3.title': 'Desarrollo de Sitios Web',
+                'solutions.card3.description': 'Creamos sitios de alto rendimiento optimizados para las tres capas de la búsqueda moderna: SEO tradicional, AEO para respuestas directas y asistentes de voz, y GEO para IA generativa como ChatGPT y Gemini.',
+                'solutions.card3.feature1': 'SEO técnico y estratégico avanzado',
+                'solutions.card3.feature2': 'AEO — optimización para respuestas directas',
+                'solutions.card3.feature3': 'GEO — optimización para IA generativa',
+                'solutions.card3.feature4': 'Rendimiento, accesibilidad y Core Web Vitals',
+                'solutions.card3.cta': 'Solicitar presupuesto para Sitios',
+                
+                'solutions.card4.badge': 'Especialista Google',
+                'solutions.card4.title': 'SEO Local para Empresas',
+                'solutions.card4.description': 'Sea encontrado por quien está cerca y listo para comprar. Como especialistas Google en SEO Local, posicionamos su empresa en Google Business Profile, Google Maps y búsqueda local, generando más llamadas, visitas y ventas.',
+                'solutions.card4.feature1': 'Optimización completa de Google Business Profile',
+                'solutions.card4.feature2': 'Estrategia de citas locales y NAP consistente',
+                'solutions.card4.feature3': 'Gestión de evaluaciones y reputación local',
+                'solutions.card4.feature4': 'Reportes mensuales de ranking y conversiones',
+                'solutions.card4.cta': 'Quiero aparecer en Google',
+                
+                // Cómo Funciona
+                'howItWorks.tag': 'Proceso',
+                'howItWorks.title1': 'Cómo ',
+                'howItWorks.title2': ' transforma su atención',
+                'howItWorks.subtitle': 'De diagnóstico a operación en 5 pasos simples',
+                'howItWorks.step1.title': 'Diagnóstico del Embudo',
+                'howItWorks.step1.description': 'Analizamos su proceso de ventas actual, identificando cuellos de botella y oportunidades de automatización en la atención vía WhatsApp.',
+                'howItWorks.step2.title': 'IA Personalizada',
+                'howItWorks.step2.description': 'Entrenamos la inteligencia artificial con el tono de voz de su marca, productos, servicios y respuestas frecuentes de los clientes.',
+                'howItWorks.step3.title': 'Integración Completa',
+                'howItWorks.step3.description': 'Conectamos el chatbot a su CRM, calendario, sistema de pagos y otras herramientas esenciales de su negocio.',
+                'howItWorks.step4.title': 'Pruebas y Ajustes',
+                'howItWorks.step4.description': 'Realizamos pruebas extensivas para garantizar que la IA responda de forma natural y eficiente, ajustando según sea necesario.',
+                'howItWorks.step5.title': 'Go-live y Monitoreo',
+                'howItWorks.step5.description': 'La automatización entra en funcionamiento y monitoreamos el desempeño, haciendo mejoras continuas basadas en datos reales.',
+                
+                // Sobre
+                'about.tag': 'Sobre Nosotros',
+                'about.title1': 'De software y diseño a la ',
+                'about.titleHighlight': 'Inteligencia Artificial',
+                'about.paragraph1': 'Nuestra historia comenzó hace <strong>4 años</strong>, construyendo soluciones a través de softwares y diseño gráfico. A lo largo de este viaje, percibimos que pequeños y medianos negocios necesitaban algo más: <strong>escalar la atención sin perder la proximidad con el cliente</strong>.',
+                'about.paragraph2': 'Por eso, en <strong>2025</strong>, evolucionamos. Trajimos la Inteligencia Artificial a nuestro ADN, especializándonos en <strong>automatizaciones de WhatsApp humanizadas</strong>, <strong>sitios optimizados para SEO, AEO y GEO</strong>, y <strong>SEO Local en Google</strong>.',
+                'about.paragraph3': 'Hoy, transformamos la rutina de su empresa con tecnología a medida y eficiencia real. Cada solución está pensada para generar resultados medibles desde el primer día.',
+                'about.cta': 'Descubra nuestras Automatizaciones',
+                'about.card1.title': 'Software a Medida',
+                'about.card1.description': 'Desarrollamos soluciones personalizadas que se adaptan perfectamente a los procesos de su negocio.',
+                'about.card2.title': 'Seguridad y Confiabilidad',
+                'about.card2.description': 'Infraestructura robusta con cifrado de extremo a extremo y cumplimiento con LGPD.',
+                'about.card3.title': 'Resultados Inmediatos',
+                'about.card3.description': 'Implementación ágil con métricas claras de ROI desde el primer mes de operación.',
+                
+                // FAQ
+                'faq.tag': 'Preguntas Frecuentes',
+                'faq.title1': 'Preguntas que recibimos con ',
+                'faq.titleHighlight': 'frecuencia',
+                'faq.subtitle': 'Todo lo que necesita saber sobre nuestras soluciones',
+                'faq.q1.question': '¿Qué es la automatización de WhatsApp con IA?',
+                'faq.q1.answer': 'La automatización de WhatsApp con IA es una tecnología que utiliza inteligencia artificial para responder mensajes automáticamente, calificar leads, agendar reuniones y conducir conversaciones de ventas en WhatsApp de forma humanizada, 24 horas al día, 7 días a la semana. La IA aprende con el tiempo, mejorando sus respuestas basándose en las interaciones reales.',
+                'faq.q2.question': '¿Qué es SEO, AEO y GEO y por qué mi sitio necesita esto?',
+                'faq.q2.answer': '<strong>SEO (Search Engine Optimization)</strong> optimiza su sitio para aparecer en las búsquedas orgánicas de Google. <strong>AEO (Answer Engine Optimization)</strong> posiciona su contenido para respuestas directas y asistentes de voz como Alexa y Google Assistant. <strong>GEO (Generative Engine Optimization)</strong> optimiza su sitio para ser citado por IA generativa como ChatGPT, Gemini y Claude. Juntos, garantizan visibilidad máxima en todos los canales de búsqueda modernos — no solo en Google, sino también en las IAs que las personas usan cada vez más.',
+                'faq.q3.question': '¿Qué es SEO Local y cómo ayuda a mi empresa?',
+                'faq.q3.answer': '<strong>SEO Local</strong> es la optimización de la presencia de su empresa en las búsquedas geolocalizadas de Google — Google Maps, Google Business Profile y resultados de "cerca de mí". Como <strong>especialistas Google en SEO Local</strong>, optimizamos su perfil, gestionamos evaluaciones, creamos citas locales consistentes e implementamos schema markup local. El resultado: más llamadas, más visitas a la tienda y más ventas de clientes que están a pocos kilómetros de usted y listos para comprar.',
+                'faq.q4.question': '¿Cuánto cuesta implementar un chatbot de IA en WhatsApp?',
+                'faq.q4.answer': 'La inversión varía según el volumen de atención y las funcionalidades necesarias. WeeMake ofrece planes flexibles adaptados al tamaño de su negocio. Contáctenos por WhatsApp <a href="https://wa.me/5515996197477">(15) 99619-7477</a> para un presupuesto personalizado sin compromiso.',
+                'faq.q5.question': '¿Cómo funciona el ERP modular de WeeMake?',
+                'faq.q5.answer': 'Nuestros ERPs modulares le permiten elegir solo los módulos que su empresa necesita — como ventas, inventario, finanzas, RRHH y análisis — pagando solo por lo que utiliza. Cada módulo se integra perfectamente con los otros, creando un ecosistema de gestión completo y escalable.',
+                'faq.q6.question': '¿La automatización de WhatsApp funciona para cualquier tipo de negocio?',
+                'faq.q6.answer': '¡Sí! Nuestras soluciones de automatización de WhatsApp con IA son adaptables a diversos nichos: e-commerce, clínicas, inmobiliarias, gimnasios, consultorios, restaurantes, escuelas y mucho más. La IA se entrena específicamente para el contexto de su negocio, garantizando respuestas relevantes y personalizadas.',
+                'faq.q7.question': '¿Cuánto tiempo lleva implementar la automatización?',
+                'faq.q7.answer': 'La implementación inicial puede hacerse en pocos días. El tiempo exacto depende de la complejidad del embudo de ventas y las integraciones necesarias. Después de la configuración, la IA comienza a operar inmediatamente y va perfeccionando sus respuestas con el tiempo a través de machine learning.',
+                'faq.q8.question': '¿Necesito tener conocimiento técnico para usar?',
+                'faq.q8.answer': '¡No! Nuestras soluciones están diseñadas para ser intuitivas. Ofrecemos capacitación completa y soporte continuo. La interfaz es amigable y nuestro equipo se encarga de toda la parte técnica, desde la configuración inicial hasta las actualizaciones y mantenimiento.',
+                
+                // CTA
+                'cta.title1': '¿Listo para ',
+                'cta.titleHighlight': 'escalar',
+                'cta.title2': ' su negocio?',
+                'cta.description': 'Transforme su atención, conquiste Google y vea resultados reales en pocos días. Nuestro equipo está listo para entender sus necesidades y proponer la mejor solución.',
+                'cta.button1': 'Hablar por WhatsApp',
+                'cta.button2': 'Conocer Automatizaciones',
+                
+                // Contacto
+                'contact.tag': 'Contacto',
+                'contact.title1': 'Vamos a ',
+                'contact.titleHighlight': 'conversar',
+                'contact.subtitle': 'Elija el canal que prefiera y hable con nosotros',
+                'contact.whatsapp.title': 'WhatsApp',
+                'contact.whatsapp.description': '¿Tiene dudas o quiere un presupuesto? Hable directamente con nuestro equipo de forma rápida y práctica.',
+                'contact.whatsapp.action': 'Llamar ahora',
+                'contact.instagram.title': 'Instagram',
+                'contact.instagram.description': 'Siga nuestros bastidores, consejos de tecnología y novedades sobre IA para negocios.',
+                'contact.instagram.action': 'Seguir en Instagram',
+                'contact.email.title': 'Email',
+                'contact.email.description': '¿Prefiere email? Envíe su mensaje y responderemos en hasta 24 horas hábiles.',
+                'contact.email.action': 'Enviar email',
+                
+                // Footer
+                'footer.tagline1': 'Tecnología que escala negocios.',
+                'footer.tagline2': 'Automatización de WhatsApp con IA, sitios optimizados para SEO/AEO/GEO y SEO Local Google para empresas que quieren crecer.',
+                'footer.nav.title': 'Navegación',
+                'footer.nav.home': 'Inicio',
+                'footer.nav.solutions': 'Soluciones',
+                'footer.nav.howItWorks': 'Cómo Funciona',
+                'footer.nav.about': 'Nosotros',
+                'footer.nav.faq': 'Preguntas Frecuentes',
+                'footer.nav.contact': 'Contacto',
+                'footer.services.title': 'Servicios',
+                'footer.services.service1': 'Automatización WhatsApp',
+                'footer.services.service2': 'Chatbots con IA',
+                'footer.services.service3': 'CRM Inteligente',
+                'footer.services.service4': 'Sitios Optimizados (SEO/AEO/GEO)',
+                'footer.services.service5': 'Especialista Google SEO Local',
+                'footer.services.service6': 'ERP Modular (Próximamente)',
+                'footer.contact.title': 'Contacto',
+                'footer.contact.whatsapp': 'WhatsApp: (15) 99619-7477',
+                'footer.contact.email': 'contato@weemake.com.br',
+                'footer.contact.instagram': '@weemake.ai',
+                'footer.copyright': '©2026 WeeMake. Todos los derechos reservados.',
+                'footer.slogan': 'Tecnología de punta para empresas que quieren más.',
+                'footer.developed': 'Desarrollado por WeeMake.',
+                'footer.brazil': 'Una empresa brasileña'
+            }
+        },
+        
+        init() {
+            // Detectar idioma salvo ou do navegador
+            const savedLang = localStorage.getItem('weemake-lang');
+            const browserLang = navigator.language || navigator.userLanguage;
+            
+            if (savedLang && this.translations[savedLang]) {
+                this.currentLang = savedLang;
+            } else if (browserLang.startsWith('en')) {
+                this.currentLang = 'en';
+            } else if (browserLang.startsWith('es')) {
+                this.currentLang = 'es';
+            } else {
+                this.currentLang = 'pt-BR';
+            }
+            
+            this.applyLanguage();
+            this.initLanguageSwitcher();
+        },
+        
+        t(key) {
+            const translations = this.translations[this.currentLang];
+            return translations && translations[key] ? translations[key] : key;
+        },
+        
+        applyLanguage() {
+            // Atualizar atributo lang do HTML
+            document.documentElement.lang = this.currentLang;
+            
+            // Atualizar todos os elementos com data-i18n
+            $$('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const translation = this.t(key);
+                
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translation;
+                } else if (el.hasAttribute('title')) {
+                    el.title = translation;
+                } else {
+                    // Preservar elementos filhos (como links dentro de parágrafos)
+                    if (el.querySelector('a, strong, em, span')) {
+                        // Para elementos com HTML interno, usar innerHTML se a tradução contiver tags
+                        if (translation.includes('<')) {
+                            el.innerHTML = translation;
+                        } else {
+                            // Substituir apenas os nós de texto, preservando elementos
+                            const textNodes = [];
+                            const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+                            let node;
+                            while (node = walker.nextNode()) {
+                                if (node.textContent.trim()) {
+                                    textNodes.push(node);
+                                }
+                            }
+                            if (textNodes.length === 1) {
+                                textNodes[0].textContent = translation;
+                            } else {
+                                el.textContent = translation;
+                            }
+                        }
+                    } else {
+                        el.textContent = translation;
+                    }
+                }
+            });
+            
+            // Atualizar botões ativos do seletor de idioma
+            $$('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
+            });
+            
+            // Atualizar meta tags
+            this.updateMetaTags();
+            
+            // Salvar preferência
+            localStorage.setItem('weemake-lang', this.currentLang);
+        },
+        
+        updateMetaTags() {
+            const metaDescriptions = {
+                'pt-BR': 'WeeMake: automatize seu WhatsApp com IA, desenvolva sites otimizados para SEO, AEO e GEO, e conquiste o topo do Google com SEO Local. Especialistas em tecnologia que escala negócios.',
+                'en': 'WeeMake: automate your WhatsApp with AI, develop websites optimized for SEO, AEO, and GEO, and conquer the top of Google with Local SEO. Technology experts that scale businesses.',
+                'es': 'WeeMake: automatice su WhatsApp con IA, desarrolle sitios optimizados para SEO, AEO y GEO, y conquiste la cima de Google con SEO Local. Especialistas en tecnología que escala negocios.'
+            };
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.content = metaDescriptions[this.currentLang] || metaDescriptions['pt-BR'];
+            }
+        },
+        
+        setLanguage(lang) {
+            if (this.translations[lang]) {
+                this.currentLang = lang;
+                this.applyLanguage();
+            }
+        },
+        
+        initLanguageSwitcher() {
+            $$('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = btn.dataset.lang;
+                    this.setLanguage(lang);
+                });
+            });
+        }
     };
 
     // ============================================
@@ -453,57 +1073,13 @@
             });
         });
     }
-// WebMCP — expõe ferramentas do site para agentes de IA
-if (navigator.modelContext && navigator.modelContext.provideContext) {
-  navigator.modelContext.provideContext({
-    tools: [
-      {
-        name: "contact_weemake",
-        description: "Inicia contato com a WeeMake via WhatsApp para orçamento ou dúvidas",
-        inputSchema: {
-          type: "object",
-          properties: {
-            message: {
-              type: "string",
-              description: "Mensagem inicial para enviar pelo WhatsApp"
-            }
-          },
-          required: ["message"]
-        },
-        execute: async (args) => {
-          const url = `https://wa.me/5515996197477?text=${encodeURIComponent(args.message)}`;
-          window.open(url, '_blank');
-          return { success: true, url: url };
-        }
-      },
-      {
-        name: "get_services",
-        description: "Retorna a lista de serviços oferecidos pela WeeMake",
-        inputSchema: {
-          type: "object",
-          properties: {}
-        },
-        execute: async () => {
-          return {
-            services: [
-              "Automação de WhatsApp com IA",
-              "Chatbots Inteligentes",
-              "CRM com IA",
-              "Desenvolvimento de Sites Otimizados (SEO/AEO/GEO)",
-              "SEO Local Google",
-              "ERP Modular (Em breve)"
-            ]
-          };
-        }
-      }
-    ]
-  });
-}
+
     // ============================================
     // INICIALIZAÇÃO
     // ============================================
     function init() {
         initFOUCPrevention();
+        i18n.init(); // Inicializar sistema de idiomas
         initMobileMenu();
         initSmoothScroll();
         initHeaderScroll();
