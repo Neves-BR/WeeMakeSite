@@ -511,7 +511,7 @@
                 'footer.nav.solutions': 'Soluciones',
                 'footer.nav.howItWorks': 'Cómo Funciona',
                 'footer.nav.about': 'Nosotros',
-                'footer.nav.faq': 'Preguntas Frecuentes',
+                'footer.nav.faq': 'FAQ',
                 'footer.nav.contact': 'Contacto',
                 'footer.services.title': 'Servicios',
                 'footer.services.service1': 'Automatización WhatsApp',
