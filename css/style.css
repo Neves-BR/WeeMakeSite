@@ -147,7 +147,7 @@ a {
 }
 
 /* ============================================
-   BOTÕES
+   BOTÕES — CORREÇÃO: white-space normal para evitar overflow
    ============================================ */
 .btn {
     display: inline-flex;
@@ -164,7 +164,10 @@ a {
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    min-height: 48px;
 }
 
 .btn-primary {
@@ -229,6 +232,8 @@ a {
     background: rgba(124, 58, 237, 0.1);
     border: 1px solid rgba(124, 58, 237, 0.3);
     color: var(--accent-purple);
+    white-space: nowrap;
+    min-height: auto;
 }
 
 .btn-header:hover {
@@ -253,6 +258,7 @@ a {
 
 .btn-arrow .icon-arrow, .contact-card__action svg {
     transition: transform var(--transition-base);
+    flex-shrink: 0;
 }
 
 .btn-arrow:hover .icon-arrow, .contact-card:hover .contact-card__action svg {
@@ -294,9 +300,9 @@ a {
 .logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
-/* CORREÇÃO: separado em regras individuais para evitar width: auto no footer */
 .logo-img {
     width: auto;
     display: block;
@@ -319,13 +325,15 @@ a {
 .navbar {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 16px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 28px;
+    gap: 24px;
 }
 
 .nav-link {
@@ -335,6 +343,7 @@ a {
     position: relative;
     padding: 4px 0;
     transition: color var(--transition-base);
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -365,6 +374,7 @@ a {
     border: none;
     cursor: pointer;
     padding: 4px;
+    flex-shrink: 0;
 }
 
 .bar {
@@ -386,6 +396,62 @@ a {
 
 .hamburger.active .bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================
+   SELETOR DE IDIOMA — CORREÇÃO: flex-shrink e gap reduzido
+   ============================================ */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 12px;
+    padding: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.lang-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-btn.active {
+    color: #fff;
+    background: rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+.lang-btn .fi {
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+}
+
+.lang-label {
+    display: inline;
 }
 
 /* ============================================
@@ -430,6 +496,7 @@ a {
     font-weight: 500;
     color: var(--accent-purple);
     margin-bottom: 24px;
+    white-space: nowrap;
 }
 
 .badge-dot {
@@ -438,6 +505,7 @@ a {
     background: var(--accent-purple);
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes pulse-dot {
@@ -448,6 +516,8 @@ a {
 .hero-text h1 {
     margin-bottom: 24px;
     line-height: 1.1;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .hero-text > p {
@@ -491,12 +561,14 @@ a {
 .stat-label {
     font-size: 0.8rem;
     color: var(--text-tertiary);
+    white-space: nowrap;
 }
 
 .stat-divider {
     width: 1px;
     height: 40px;
     background: var(--border-medium);
+    flex-shrink: 0;
 }
 
 .hero-image {
@@ -541,6 +613,7 @@ a {
     color: var(--text-tertiary);
     font-size: 0.8rem;
     animation: bounce-scroll 2s ease-in-out infinite;
+    white-space: nowrap;
 }
 
 .mouse {
@@ -594,10 +667,13 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 20px;
+    white-space: nowrap;
 }
 
 .section-header h2 {
     margin-bottom: 16px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .section-subtitle {
@@ -636,6 +712,8 @@ a {
     overflow: hidden;
     transition: all var(--transition-base);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .solution-card:hover {
@@ -648,6 +726,7 @@ a {
     position: relative;
     overflow: hidden;
     aspect-ratio: 4/3;
+    flex-shrink: 0;
 }
 
 .solution-card__visual img {
@@ -670,10 +749,17 @@ a {
 
 .solution-card__content {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
+/* ============================================
+   BADGES — CORREÇÃO: max-width e word-break para textos longos
+   ============================================ */
 .solution-card__badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 4px 12px;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: #fff;
@@ -681,6 +767,9 @@ a {
     font-weight: 600;
     border-radius: 100px;
     margin-bottom: 16px;
+    white-space: nowrap;
+    width: fit-content;
+    max-width: 100%;
 }
 
 .solution-card__badge--soon {
@@ -688,10 +777,6 @@ a {
     color: var(--text-tertiary);
     border: 1px solid var(--border-subtle);
 }
-
-/* ============================================
-   BADGES ADICIONAIS — NOVOS SERVIÇOS
-   ============================================ */
 
 .solution-card__badge--new {
     background: linear-gradient(135deg, #22c55e, #16a34a);
@@ -715,6 +800,8 @@ a {
 .solution-card h3 {
     margin-bottom: 12px;
     font-size: 1.4rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .solution-card p {
@@ -725,6 +812,7 @@ a {
 .feature-list {
     list-style: none;
     margin-bottom: 24px;
+    margin-top: auto;
 }
 
 .feature-list li {
@@ -734,6 +822,7 @@ a {
     margin-bottom: 10px;
     font-size: 0.9rem;
     color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 .icon-check {
@@ -800,6 +889,8 @@ a {
 .step-content h3 {
     margin-bottom: 8px;
     font-size: 1.2rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .step-content p {
@@ -827,6 +918,8 @@ a {
 
 .sobre-content h2 {
     margin-bottom: 24px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .sobre-text {
@@ -881,6 +974,8 @@ a {
 .sobre-card h4 {
     margin-bottom: 8px;
     font-size: 1.1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .sobre-card p {
@@ -929,6 +1024,8 @@ a {
     font-size: 1rem;
     list-style: none;
     transition: color var(--transition-base);
+    gap: 16px;
+    line-height: 1.4;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -937,6 +1034,12 @@ a {
 
 .faq-item summary:hover {
     color: var(--accent-purple);
+}
+
+.faq-item summary span {
+    flex: 1;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .faq-icon {
@@ -1006,6 +1109,8 @@ a {
 
 .cta-content h2 {
     margin-bottom: 20px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .cta-content p {
@@ -1021,7 +1126,7 @@ a {
 }
 
 /* ============================================
-   CONTATO SECTION
+   CONTATO SECTION — CORREÇÃO: min-height para cards uniformes
    ============================================ */
 .contato {
     padding: 120px 0;
@@ -1044,6 +1149,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 320px;
 }
 
 .contact-card:hover {
@@ -1061,6 +1167,7 @@ a {
     border-radius: var(--radius-lg);
     margin-bottom: 24px;
     transition: all var(--transition-base);
+    flex-shrink: 0;
 }
 
 .contact-card__icon svg {
@@ -1104,12 +1211,15 @@ a {
 .contact-card h3 {
     margin-bottom: 12px;
     font-size: 1.2rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .contact-card p {
     font-size: 0.9rem;
     margin-bottom: 24px;
     flex-grow: 1;
+    line-height: 1.6;
 }
 
 .contact-card__action {
@@ -1120,10 +1230,12 @@ a {
     font-size: 0.9rem;
     color: var(--accent-purple);
     transition: all var(--transition-base);
+    white-space: nowrap;
+    margin-top: auto;
 }
 
 /* ============================================
-   FOOTER
+   FOOTER — CORREÇÃO: word-break e min-width para links longos
    ============================================ */
 .footer {
     padding: 80px 0 32px;
@@ -1152,6 +1264,7 @@ a {
 .footer-brand p {
     font-size: 0.9rem;
     max-width: 320px;
+    line-height: 1.6;
 }
 
 .footer-links h4 {
@@ -1161,6 +1274,7 @@ a {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .footer-links ul {
@@ -1175,6 +1289,10 @@ a {
     font-size: 0.9rem;
     color: var(--text-secondary);
     transition: color var(--transition-base);
+    line-height: 1.5;
+    display: inline-block;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .footer-links a:hover {
@@ -1196,10 +1314,12 @@ a {
     font-size: 0.85rem;
     color: var(--text-tertiary);
     margin-bottom: 4px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 /* ============================================
-   SELOS DE CONFIANÇA — REGRA ÚNICA E DEFINITIVA
+   SELOS DE CONFIANÇA
    ============================================ */
 .trust-badges {
     display: flex;
@@ -1225,6 +1345,7 @@ a {
     font-size: 0.9rem;
     transition: 0.25s;
     text-align: center;
+    white-space: nowrap;
 }
 
 .trust-badge:hover {
@@ -1236,112 +1357,9 @@ a {
 .trust-badge i {
     font-size: 18px;
     color: #8b5cf6;
-}
-/* ============================================
-   SELETOR DE IDIOMA
-   ============================================ */
-
-.lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-right: 16px;
-    padding: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
 }
 
-.lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.lang-btn:hover {
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.lang-btn.active {
-    color: #fff;
-    background: rgba(59, 130, 246, 0.25);
-    box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
-}
-
-.lang-btn .fi {
-    width: 18px;
-    height: 14px;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
-}
-
-.lang-label {
-    display: inline;
-}
-
-/* Mobile: esconder label, mostrar só bandeira */
-@media (max-width: 768px) {
-    .lang-switcher {
-        margin-right: 8px;
-        padding: 3px;
-    }
-    
-    .lang-btn {
-        padding: 5px 7px;
-    }
-    
-    .lang-label {
-        display: none;
-    }
-    
-    .lang-btn .fi {
-        width: 20px;
-        height: 15px;
-    }
-}
-
-/* Header scrolled state */
-.header.scrolled .lang-switcher {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-/* Ajuste no navbar para acomodar o seletor */
-.navbar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Ajuste do botão WhatsApp no header */
-.btn-header .lang-text {
-    display: inline;
-}
-
-@media (max-width: 768px) {
-    .btn-header .lang-text {
-        display: none;
-    }
-    
-    .btn-header {
-        padding: 8px;
-    }
-    
-    .btn-header svg {
-        margin: 0;
-    }
-}
 /* ============================================
    WHATSAPP FLOAT BUTTON
    ============================================ */
@@ -1360,6 +1378,7 @@ a {
     box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
     z-index: 999;
     transition: all var(--transition-base);
+    flex-shrink: 0;
 }
 
 .whatsapp-float svg {
@@ -1413,7 +1432,7 @@ a {
 [data-delay="400"] { transition-delay: 0.4s; }
 
 /* ============================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE — CORREÇÕES EXTENSAS PARA IDIOMAS
    ============================================ */
 @media (max-width: 1024px) {
     .hero-content {
@@ -1458,6 +1477,11 @@ a {
         margin: 0 auto;
     }
 
+    .contact-card {
+        min-height: 280px;
+        padding: 32px 24px;
+    }
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
@@ -1472,6 +1496,21 @@ a {
     .footer-brand p {
         max-width: 480px;
         margin: 0 auto;
+    }
+
+    /* Ajuste do seletor de idioma em telas médias */
+    .lang-switcher {
+        margin-right: 8px;
+    }
+
+    .lang-btn {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+
+    .lang-btn .fi {
+        width: 14px;
+        height: 10px;
     }
 }
 
@@ -1513,6 +1552,7 @@ a {
         display: none;
     }
 
+    /* CORREÇÃO: Esconder botão WhatsApp do header no mobile */
     .btn-header {
         display: none;
     }
@@ -1521,12 +1561,37 @@ a {
         display: flex;
     }
 
+    /* CORREÇÃO: Seletor de idioma mais compacto no mobile */
+    .lang-switcher {
+        margin-right: 6px;
+        padding: 2px;
+        gap: 1px;
+    }
+
+    .lang-btn {
+        padding: 4px 5px;
+    }
+
+    .lang-btn .fi {
+        width: 18px;
+        height: 13px;
+    }
+
+    .lang-label {
+        display: none;
+    }
+
     .hero {
         padding: 100px 0 60px;
     }
 
     .hero-text h1 {
         font-size: 2.2rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-stats {
@@ -1561,6 +1626,11 @@ a {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
+    }
+
+    .contact-card {
+        min-height: auto;
+        padding: 32px 24px;
     }
 
     /* ============================================
@@ -1634,7 +1704,7 @@ a {
     }
 
     /* ============================================
-       TRUST BADGES — MOBILE CORREÇÃO DEFINITIVA
+       TRUST BADGES — MOBILE
        ============================================ */
     .trust-badges {
         justify-content: center;
@@ -1682,6 +1752,8 @@ a {
     .btn {
         width: 100%;
         max-width: 320px;
+        padding: 14px 20px;
+        font-size: 0.9rem;
     }
 
     .hero-stats {
@@ -1692,12 +1764,39 @@ a {
         min-width: 80px;
     }
 
+    .stat-label {
+        font-size: 0.75rem;
+        white-space: normal;
+        text-align: center;
+    }
+
     .solution-card__content {
         padding: 24px;
     }
 
+    .solution-card__badge {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+
+    .solution-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-list li {
+        font-size: 0.85rem;
+    }
+
     .contact-card {
-        padding: 32px 24px;
+        padding: 28px 20px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-card p {
+        font-size: 0.85rem;
     }
 
     .step {
@@ -1736,7 +1835,7 @@ a {
         gap: 28px;
     }
 
-    .footer-brand .logo-img {
+    .footer-brand .logo-img-footer {
         height: 36px;
     }
 
@@ -1759,19 +1858,14 @@ a {
 
     .trust-badges {
         gap: 8px;
-        align-items: center;
-        flex-wrap: wrap;
         margin-top: 24px;
         padding-top: 20px;
     }
 
     .trust-badge {
-        align-items: center;
-        flex-wrap: wrap;
         font-size: 0.8rem;
         padding: 8px 12px;
-        width: 100%;
-        max-width: 280px;
+        white-space: normal;
     }
 }
 
@@ -1807,7 +1901,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    PRINT STYLES
    ============================================ */
 @media print {
-    .header, .hero-scroll-indicator, .whatsapp-float, #particle-canvas, .scroll-progress {
+    .header, .hero-scroll-indicator, .whatsapp-float, #particle-canvas, .scroll-progress, .lang-switcher {
         display: none !important;
     }
 
