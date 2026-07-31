@@ -368,7 +368,7 @@
                 'nav.solutions': 'Soluciones',
                 'nav.howItWorks': 'Cómo Funciona',
                 'nav.about': 'Nosotros',
-                'nav.faq': 'Preguntas Frecuentes',
+                'nav.faq': 'FAQ',
                 'nav.contact': 'Contacto',
                 'nav.whatsapp': 'Hablar por WhatsApp',
                 
@@ -459,7 +459,7 @@
                 'about.card3.description': 'Implementación ágil con métricas claras de ROI desde el primer mes de operación.',
                 
                 // FAQ
-                'faq.tag': 'Preguntas Frecuentes',
+                'faq.tag': 'FAQ',
                 'faq.title1': 'Preguntas que recibimos con ',
                 'faq.titleHighlight': 'frecuencia',
                 'faq.subtitle': 'Todo lo que necesita saber sobre nuestras soluciones',
