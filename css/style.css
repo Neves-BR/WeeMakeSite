@@ -1319,12 +1319,12 @@ a {
 }
 
 /* ============================================
-   SELOS DE CONFIANÇA
+   SELOS DE CONFIANÇA — CORREÇÃO: alinhamento consistente em todos os breakpoints
    ============================================ */
 .trust-badges {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 40px;
@@ -1346,6 +1346,7 @@ a {
     transition: 0.25s;
     text-align: center;
     white-space: nowrap;
+    flex: 0 0 auto;
 }
 
 .trust-badge:hover {
@@ -1704,11 +1705,11 @@ a {
     }
 
     /* ============================================
-       TRUST BADGES — MOBILE
+       TRUST BADGES — MOBILE (max-width: 768px)
        ============================================ */
     .trust-badges {
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         flex-wrap: wrap;
         gap: 10px;
         margin-top: 32px;
@@ -1716,26 +1717,11 @@ a {
     }
 
     .trust-badge {
-        width: auto;
+        flex: 0 0 auto;
         max-width: 100%;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
         font-size: 0.85rem;
         padding: 8px 14px;
-    }
-
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .whatsapp-float svg {
-        width: 24px;
-        height: 24px;
+        white-space: nowrap;
     }
 }
 
@@ -1856,6 +1842,9 @@ a {
         font-size: 0.8rem;
     }
 
+    /* ============================================
+       TRUST BADGES — MOBILE PEQUENO (max-width: 480px)
+       ============================================ */
     .trust-badges {
         gap: 8px;
         margin-top: 24px;
@@ -1865,7 +1854,9 @@ a {
     .trust-badge {
         font-size: 0.8rem;
         padding: 8px 12px;
-        white-space: normal;
+        white-space: nowrap;
+        flex: 0 0 auto;
+        max-width: 100%;
     }
 }
 
