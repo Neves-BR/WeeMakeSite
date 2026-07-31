@@ -1655,11 +1655,15 @@ a {
 
     .trust-badges {
         gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
         margin-top: 24px;
         padding-top: 20px;
     }
 
     .trust-badge {
+        align-items: center;
+        flex-wrap: wrap;
         font-size: 0.8rem;
         padding: 8px 12px;
         width: 100%;
