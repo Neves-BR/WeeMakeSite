@@ -1535,7 +1535,7 @@ a {
     .trust-badges {
         justify-content: center;
         align-items: center;
-        align-content: center;
+        flex-wrap: wrap;
         gap: 10px;
         margin-top: 32px;
         padding-top: 24px;
@@ -1544,7 +1544,8 @@ a {
     .trust-badge {
         width: auto;
         max-width: 100%;
-        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
         justify-content: center;
         text-align: center;
         font-size: 0.85rem;
