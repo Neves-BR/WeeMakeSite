@@ -322,10 +322,13 @@ a {
     margin-bottom: 16px;
 }
 
+/* ============================================
+   NAVBAR — AJUSTE DE ESPAÇAMENTOS
+   ============================================ */
 .navbar {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     flex: 1;
     justify-content: flex-end;
 }
@@ -333,7 +336,7 @@ a {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 32px;
 }
 
 .nav-link {
@@ -399,16 +402,16 @@ a {
 }
 
 /* ============================================
-   SELETOR DE IDIOMA — CORREÇÃO: flex-shrink e gap reduzido
+   SELETOR DE IDIOMA — AJUSTE DE ESPAÇAMENTOS
    ============================================ */
 .lang-switcher {
     display: flex;
     align-items: center;
-    gap: 2px;
-    margin-right: 12px;
-    padding: 3px;
+    gap: 4px;
+    margin-right: 16px;
+    padding: 4px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
 }
@@ -416,8 +419,8 @@ a {
 .lang-btn {
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 5px 8px;
+    gap: 6px;
+    padding: 6px 10px;
     border: none;
     background: transparent;
     color: rgba(255, 255, 255, 0.6);
@@ -1501,11 +1504,11 @@ a {
 
     /* Ajuste do seletor de idioma em telas médias */
     .lang-switcher {
-        margin-right: 8px;
+        margin-right: 12px;
     }
 
     .lang-btn {
-        padding: 4px 6px;
+        padding: 5px 8px;
         font-size: 11px;
     }
 
@@ -1562,15 +1565,17 @@ a {
         display: flex;
     }
 
-    /* CORREÇÃO: Seletor de idioma mais compacto no mobile */
+    /* ============================================
+       SELETOR DE IDIOMA — MOBILE AJUSTADO
+       ============================================ */
     .lang-switcher {
-        margin-right: 6px;
-        padding: 2px;
-        gap: 1px;
+        margin-right: 10px;
+        padding: 3px;
+        gap: 2px;
     }
 
     .lang-btn {
-        padding: 4px 5px;
+        padding: 5px 6px;
     }
 
     .lang-btn .fi {
