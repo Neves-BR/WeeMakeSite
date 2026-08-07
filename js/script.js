@@ -429,7 +429,7 @@
             });
             
             // Atualizar botões ativos do seletor de idioma
-            $$('.wm-lang-btn').forEach(btn => {
+            $$('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
             });
             
@@ -461,7 +461,7 @@
         },
         
         initLanguageSwitcher() {
-            $$('.wm-lang-btn').forEach(btn => {
+            $$('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     const lang = btn.dataset.lang;
@@ -480,8 +480,8 @@
     // MENU MOBILE (HAMBURGER)
     // ============================================
     function initMobileMenu() {
-        const hamburger = $('.wm-hamburger');
-        const navLinks = $('.wm-nav-links');
+        const hamburger = $('.hamburger');
+        const navLinks = $('.nav-links');
         
         if (!hamburger || !navLinks) return;
 
@@ -525,7 +525,7 @@
                 const targetElement = $(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    const headerHeight = $('.wm-header')?.offsetHeight || 72;
+                    const headerHeight = $('.header')?.offsetHeight || 72;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                     
                     window.scrollTo({
@@ -541,7 +541,7 @@
     // HEADER SCROLL EFFECT
     // ============================================
     function initHeaderScroll() {
-        const header = $('.wm-header');
+        const header = $('.header');
         if (!header) return;
 
         let lastScroll = 0;
@@ -650,11 +650,11 @@
     // ============================================
     function initActiveNav() {
         const sections = $$('section[id]');
-        const navLinks = $$('.wm-nav-link');
+        const navLinks = $$('.nav-link');
         
         if (!sections.length || !navLinks.length) return;
 
-        const headerHeight = $('.wm-header')?.offsetHeight || 72;
+        const headerHeight = $('.header')?.offsetHeight || 72;
 
         const updateActiveNav = () => {
             const scrollPos = window.pageYOffset + headerHeight + 100;
@@ -802,7 +802,7 @@
     // FAQ ACCORDION (ANIMAÇÃO SUAVE)
     // ============================================
     function initFAQ() {
-        const faqItems = $$('.wm-faq-item');
+        const faqItems = $$('.faq-item');
         
         faqItems.forEach(item => {
             const summary = item.querySelector('summary');
@@ -824,7 +824,7 @@
     function initParallax() {
         if (prefersReducedMotion) return;
 
-        const heroImage = $('.wm-hero-image-wrapper');
+        const heroImage = $('.hero-image-wrapper');
         if (!heroImage) return;
 
         const handleScroll = () => {
@@ -840,7 +840,7 @@
     // BOTÃO WHATSAPP FLOAT - ENTRADA ANIMADA
     // ============================================
     function initWhatsAppFloat() {
-        const float = $('.wm-whatsapp-float');
+        const float = $('.whatsapp-float');
         if (!float) return;
 
         // Delay na entrada
