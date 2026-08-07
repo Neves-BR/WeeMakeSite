@@ -1566,26 +1566,39 @@ a {
     }
 
     /* ============================================
-       SELETOR DE IDIOMA — MOBILE AJUSTADO
-       ============================================ */
+   SELETOR DE IDIOMA — MOBILE CORRIGIDO
+   ============================================ */
+@media (max-width: 768px) {
     .lang-switcher {
-        margin-right: 10px;
-        padding: 3px;
-        gap: 2px;
+        margin-right: 8px;
+        padding: 4px;
+        gap: 4px;
+        flex-shrink: 0;
+        /* Garante que não quebre em telas pequenas */
+        min-width: fit-content;
     }
 
     .lang-btn {
-        padding: 5px 6px;
+        /* Área de toque mínima 44×44px para acessibilidade */
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Remove padding horizontal excessivo que comprimia o botão */
     }
 
     .lang-btn .fi {
-        width: 18px;
-        height: 13px;
+        width: 22px;   /* Ícone maior */
+        height: 16px;
+        border-radius: 3px;
     }
 
     .lang-label {
-        display: none;
+        display: none;  /* Mantém escondido no mobile */
     }
+}
 
     .hero {
         padding: 100px 0 60px;
