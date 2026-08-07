@@ -1521,8 +1521,13 @@ a {
 @media (max-width: 768px) {
     .header .container {
         height: 64px;
-    }
-
+        flex-wrap: nowrap;
+        overflow: visible;
+        padding: 0 16px;  /* Reduzir padding lateral se necessário */
+       }
+         .logo-img {
+           height: 36px;  /* Reduzir logo se precisar de mais espaço */
+       }
     .nav-links {
         display: none;
         position: fixed;
