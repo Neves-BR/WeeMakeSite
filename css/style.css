@@ -1573,7 +1573,6 @@ a {
    /* ============================================
    SELETOR DE IDIOMA — MOBILE CORRIGIDO
    ============================================ */
-@media (max-width: 768px) {
     .lang-switcher {
         margin-right: 8px;
         padding: 4px;
