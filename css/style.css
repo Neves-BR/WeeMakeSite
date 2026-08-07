@@ -1570,7 +1570,7 @@ a {
         display: flex;
     }
 
-    /* ============================================
+   /* ============================================
    SELETOR DE IDIOMA — MOBILE CORRIGIDO
    ============================================ */
 @media (max-width: 768px) {
@@ -1579,31 +1579,27 @@ a {
         padding: 4px;
         gap: 4px;
         flex-shrink: 0;
-        /* Garante que não quebre em telas pequenas */
         min-width: fit-content;
     }
-
     .lang-btn {
-        /* Área de toque mínima 44×44px para acessibilidade */
+        /* Área de toque mínima 44×44px (WCAG 2.1) */
         min-width: 44px;
         min-height: 44px;
         padding: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Remove padding horizontal excessivo que comprimia o botão */
     }
 
     .lang-btn .fi {
-        width: 22px;   /* Ícone maior */
+        width: 22px;
         height: 16px;
         border-radius: 3px;
     }
 
     .lang-label {
-        display: none;  /* Mantém escondido no mobile */
+        display: none;
     }
-}
 
     .hero {
         padding: 100px 0 60px;
