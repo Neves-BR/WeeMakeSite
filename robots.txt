@@ -10,10 +10,9 @@ Allow: /
 Crawl-delay: 1
 
 # Content Signals (Cloudflare Content Signals Policy)
-# Separates ACCESS permission from USAGE permission
-# search=yes     : permitido indexar e exibir em resultados de busca
-# ai-train=no    : NÃO permitido usar para treinamento de modelos AI
-# ai-input=no    : NÃO permitido usar como contexto em respostas AI
+# search=yes : permitido indexar e exibir em resultados de busca
+# ai-train=no : NAO permitido usar para treinamento de modelos AI
+# ai-input=no : NAO permitido usar como contexto em respostas AI
 Content-Signal: search=yes, ai-train=no, ai-input=no
 
 # ============================================================
@@ -29,20 +28,12 @@ User-agent: Bingbot
 Allow: /
 
 # ============================================================
-# GRUPO AI CRAWLERS - Acesso total (com Content Signals)
+# GRUPO AI CRAWLERS - Acesso total
 # ============================================================
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: Google-Extended
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: PerplexityBot
 Allow: /
 
